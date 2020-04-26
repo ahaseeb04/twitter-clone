@@ -5,6 +5,11 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Inter', ...defaultTheme.fontFamily.sans]
+            },
+
+            maxWidth: {
+                '36': '9rem',
+                '40': '10rem'
             }
         },
     },

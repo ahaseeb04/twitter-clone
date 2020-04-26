@@ -10,7 +10,9 @@
     </head>
     <body class="antialiased font-sans bg-gray-900 text-gray-300">
         <div id="app">
-            @yield('content')
+            <div class="max-w-4xl mx-auto">
+                @yield('content')
+            </div>
         </div>
 
         <script src="{{ asset('js/app.js') }}" defer></script>

@@ -42,6 +42,16 @@ class User extends Authenticatable
      *
      * @return void
      */
+    public function avatar()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?d=mp';
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function following()
     {
         return $this->belongsToMany(
