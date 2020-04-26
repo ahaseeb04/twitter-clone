@@ -7,6 +7,14 @@
         <title>{{ config('app.name') }}</title>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <script>
+            window.User = {
+                id: {{ optional(auth()->user())->id }},
+                name: '{{ optional(auth()->user())->name }}',
+                username: '{{ optional(auth()->user())->username }}',
+                avatar: '{{ optional(auth()->user())->avatar() }}'
+            }
+        </script>
     </head>
     <body class="antialiased font-sans bg-gray-900 text-gray-300">
         <div id="app">

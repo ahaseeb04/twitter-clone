@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div class="p-4 border-b-8 border-gray-800">
+            <app-tweet-compose />
+        </div>
+
         <div class="divide-y divide-gray-800">
             <app-tweet 
                 v-for="tweet in tweets"
@@ -21,7 +25,7 @@
 </template>
 
 <script>
-    import { mapGetters, mapActions } from 'vuex'
+    import { mapGetters, mapActions, mapMutations } from 'vuex'
 
     export default {
         data () {
@@ -44,6 +48,10 @@
         methods: {
             ...mapActions({
                 getTweets: 'timeline/getTweets'
+            }),
+
+            ...mapMutations({
+                PUSH_TWEETS: 'timeline/PUSH_TWEETS'
             }),
 
             loadTweets () {
@@ -69,6 +77,11 @@
 
         mounted () {
             this.loadTweets()
+
+            Echo.private(`timeline.${this.$user.id}`)
+                .listen('.TweetWasCreated', (e) => {
+                    this.PUSH_TWEETS([e])
+                })
         }
     }
 </script>

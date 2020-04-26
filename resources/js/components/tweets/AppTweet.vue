@@ -1,9 +1,11 @@
 <template>
     <div class="w-full inline-block p-4 cursor-pointer">
         <div class="flex w-full space-x-3">
-            <img :src="tweet.user.avatar" class="w-10 h-10 rounded-full object-cover">
+            <app-user-avatar 
+                :avatar="tweet.user.avatar"
+            />
 
-            <div class="flex-grow w-full">
+            <div class="w-full">
                 <app-tweet-username 
                     :user="tweet.user"
                 />

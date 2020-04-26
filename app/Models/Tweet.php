@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Tweet extends Model
 {
     /**
+     * Undocumented variable
+     *
+     * @var array
+     */
+    protected $guarded = [];
+
+    /**
      * Undocumented function
      *
      * @return void

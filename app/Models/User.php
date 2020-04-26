@@ -76,6 +76,16 @@ class User extends Authenticatable
      *
      * @return void
      */
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function tweetsFromFollowing()
     {
         return $this->hasManyThrough(
