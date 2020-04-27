@@ -29,10 +29,12 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+import likes from './store/likes';
 import timeline from './store/timeline';
 
 const store = new Vuex.Store({
     modules: {
+        likes,
         timeline
     }
 })
@@ -47,3 +49,12 @@ const app = new Vue({
     el: '#app',
     store
 });
+
+Echo.channel('tweets')
+    .listen('.TweetLikesWereUpdated', (e) => {
+        if (e.user_id === User.id) {
+            store.dispatch('likes/syncLike', e.id)
+        }
+
+        store.commit('timeline/SET_LIKES', e)
+    })

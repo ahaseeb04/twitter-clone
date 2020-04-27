@@ -25,4 +25,42 @@ class TweetCollection extends ResourceCollection
             'data' => $this->collection
         ];
     }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $request
+     * @return void
+     */
+    public function with($request)
+    {
+        return [
+            'meta' => [
+                'likes' => $this->likes($request)
+            ]
+        ];    
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $request
+     * @return void
+     */
+    protected function likes($request) {
+        if (!$user = $request->user()) {
+            return [];
+        }
+
+        return $user->likes()
+            ->whereIn(
+                'tweet_id',
+                $this->collection->pluck('id')
+                    ->merge(
+                        $this->collection->pluck('original_tweet_id')
+                    )
+            )
+            ->pluck('tweet_id')
+            ->toArray();
+    }
 }

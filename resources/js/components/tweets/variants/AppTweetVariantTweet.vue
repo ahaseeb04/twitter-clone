@@ -10,6 +10,10 @@
             />
 
             <p class="whitespace-pre-wrap">{{ tweet.body }}</p>
+
+            <app-tweet-action-group 
+                :tweet="tweet"
+            />
         </div>
     </div>
 </template>

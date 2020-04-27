@@ -4,7 +4,7 @@
             :avatar="tweet.user.avatar"
         />
 
-        <div>
+        <div class="w-full">
             <app-tweet-username 
                 :user="tweet.user"
             />
@@ -14,6 +14,10 @@
             <app-tweet
                 class="mt-3 border border-gray-700 rounded-lg" 
                 :tweet="tweet.original_tweet"
+            />
+
+            <app-tweet-action-group 
+                :tweet="tweet"
             />
         </div>
     </div>

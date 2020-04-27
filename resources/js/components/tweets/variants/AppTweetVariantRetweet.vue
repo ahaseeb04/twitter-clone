@@ -2,7 +2,7 @@
     <div class="space-y-2">
         <div class="flex items-center space-x-2 text-xs font-medium text-cool-gray-500">
             <svg
-                class="w-3 text-cool-gray-500 fill-current"
+                class="w-3 fill-current text-cool-gray-500"
                 xmlns="http://www.w3.org/2000/svg" 
                 viewBox="0 0 24 24"
             >
@@ -11,7 +11,7 @@
                 />
             </svg>
 
-            <span>{{ tweet.user.name }} retweeted</span>
+            <span>{{ person }} retweeted</span>
         </div>
 
         <component 
@@ -27,6 +27,16 @@
             tweet: {
                 required: true,
                 type: Object
+            }
+        },
+
+        computed: {
+            person () {
+                if (this.tweet.user.username === this.$user.username) {
+                    return 'You'
+                }
+
+                return this.tweet.user.name
             }
         }
     }

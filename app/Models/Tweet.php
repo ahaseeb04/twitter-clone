@@ -32,4 +32,14 @@ class Tweet extends Model
     {
         return $this->hasOne(Tweet::class, 'id', 'original_tweet_id');
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
