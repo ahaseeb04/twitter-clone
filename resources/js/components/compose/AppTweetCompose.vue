@@ -24,9 +24,12 @@
                         />
                     </div>
 
-                    <button 
+                    <button
                         type="submit" 
                         class="px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white"
+                        :class="{
+                            'opacity-50 pointer-events-none select-none': form.body.length > 280
+                        }"
                     >
                         Tweet
                     </button>

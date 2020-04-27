@@ -1,18 +1,9 @@
 <template>
-    <div class="w-full inline-block p-4 cursor-pointer">
-        <div class="flex w-full space-x-3">
-            <app-user-avatar 
-                :avatar="tweet.user.avatar"
-            />
-
-            <div class="w-full">
-                <app-tweet-username 
-                    :user="tweet.user"
-                />
-
-                <p class="whitespace-pre-wrap">{{ tweet.body }}</p>
-            </div>
-        </div>
+    <div class="w-full inline-block p-4 cursor-pointer hover:bg-gray-800">
+        <component 
+            :is="`app-tweet-variant-${tweet.type}`"
+            :tweet="tweet"
+        />
     </div>
 </template>
 

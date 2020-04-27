@@ -7,7 +7,7 @@
                 fill="none"
                 :r="radius"
                 stroke-width="8"
-                class="stroke-current text-gray-700"
+                class="stroke-current text-cool-gray-700"
             />
 
             <circle 

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="p-4 border-b-8 border-gray-800">
+        <div class="p-4 border-b-8" style="border-color: #212a39">
             <app-tweet-compose />
         </div>
 
