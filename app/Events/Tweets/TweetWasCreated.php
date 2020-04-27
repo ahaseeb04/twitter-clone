@@ -16,6 +16,11 @@ class TweetWasCreated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    /**
+     * Undocumented variable
+     *
+     * @var [type]
+     */
     protected $tweet;
 
     /**
