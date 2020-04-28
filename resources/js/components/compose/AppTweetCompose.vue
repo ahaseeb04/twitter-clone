@@ -12,6 +12,12 @@
                 v-model="form.body"
             />
 
+            <div v-if="media.progress">
+                <app-tweet-media-progress 
+                    :progress="media.progress" 
+                />
+            </div>
+
             <div v-if="media.images.length">
                 <app-tweet-image-preview
                     :images="media.images"
@@ -48,7 +54,7 @@
 
                     <button
                         type="submit" 
-                        class="px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white"
+                        class="px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white focus:outline-none"
                         :class="{
                             'opacity-50 pointer-events-none select-none': form.body.length > 280
                         }"
@@ -74,7 +80,8 @@
 
                 media: {
                     images: [],
-                    video: null
+                    video: null,
+                    progress: 0
                 },
 
                 mediaTypes: {}
@@ -83,9 +90,11 @@
 
         methods: {
             async submit () {
-                let media = await this.uploadMedia()
-
-                this.form.media = media.data.data.map(r => r.id)
+                if (this.media.images.length || this.media.video) {
+                    let media = await this.uploadMedia()
+    
+                    this.form.media = media.data.data.map(r => r.id)
+                }
 
                 await axios.post('/api/tweets', this.form)
 
@@ -94,13 +103,16 @@
                 this.form.media = []
                 this.media.images = []
                 this.media.video = null
+                this.media.progress = 0
             },
 
             async uploadMedia () {
                 return await axios.post('/api/media', this.buildMediaForm(), {
                     headers: {
                         'Content-Type': 'multipart/form-data'
-                    }
+                    },
+
+                    onUploadProgress: this.handleUploadProgress
                 })
             },
 
@@ -140,6 +152,10 @@
                 if (this.media.video) {
                     this.media.images = []
                 }
+            },
+
+            handleUploadProgress (event) {
+                this.media.progress = parseInt(Math.round((event.loaded / event.total) * 100))
             },
 
             removeImage (image) {
