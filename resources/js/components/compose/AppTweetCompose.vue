@@ -11,11 +11,33 @@
             <app-tweet-compose-textarea 
                 v-model="form.body"
             />
+
+            <div v-if="media.images.length">
+                <app-tweet-image-preview
+                    :images="media.images"
+                    @removed="removeImage"
+                />
+            </div>
+
+            <div v-if="media.video">
+                <app-tweet-video-preview
+                    :video="media.video"
+                    @removed="removeVideo"
+                />
+            </div>
         
-            <div class="flex justify-between">
-                <div>
-                    <!--  -->
-                </div>
+            <div class="flex justify-between items-center">
+                <ul class="flex items-center space-x-4">
+                    <li>
+                        <app-tweet-compose-media-button 
+                            @selected="handleMediaSelected"
+                            id="media-compose"
+                            :class="{
+                                'opacity-50 pointer-events-none select-none': media.images.length === 4 || media.video
+                            }"
+                        />
+                    </li>
+                </ul>
 
                 <div class="flex items-center justify-end space-x-2">
                     <div>
@@ -46,8 +68,16 @@
         data () {
             return {
                 form: {
-                    body: ''
-                }
+                    body: '',
+                    media: []
+                },
+
+                media: {
+                    images: [],
+                    video: null
+                },
+
+                mediaTypes: {}
             }
         },
 
@@ -56,7 +86,43 @@
                 await axios.post('/api/tweets', this.form)
 
                 this.form.body = ''
+            },
+
+            async getMediaTypes () {
+                let response = await axios.get('/api/media/types')
+
+                this.mediaTypes = response.data.data
+            },
+
+            handleMediaSelected (files) {
+                Array.from(files).slice(0, 4).forEach((file) => {
+                    if (this.mediaTypes.image.includes(file.type)) {
+                        this.media.images.push(file)
+                    }
+
+                    if (this.mediaTypes.video.includes(file.type)) {
+                        this.media.video = file
+                    }
+                })
+
+                if (this.media.video) {
+                    this.media.images = []
+                }
+            },
+
+            removeImage (image) {
+                this.media.images = this.media.images.filter((i) => {
+                    return image !== i
+                })
+            },
+
+            removeVideo () {
+                this.media.video = null
             }
+        },
+
+        mounted () {
+            this.getMediaTypes()
         }
     }
 </script>

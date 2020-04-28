@@ -29,7 +29,12 @@ class TimelineController extends Controller
             ->latest()
             ->with([
                 'user',
-                'likes'
+                'likes',
+                'retweets',
+                'originalTweet',
+                'originalTweet.user',
+                'originalTweet.likes',
+                'originalTweet.retweets'
             ])
             ->paginate(25);
 
