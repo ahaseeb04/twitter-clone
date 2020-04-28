@@ -38,6 +38,26 @@ class Tweet extends Model
      *
      * @return void
      */
+    public function retweetedTweet()
+    {
+        return $this->hasOne(Tweet::class, 'original_tweet_id', 'id');
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function retweets()
+    {
+        return $this->hasMany(Tweet::class, 'original_tweet_id');
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function likes()
     {
         return $this->hasMany(Like::class);

@@ -12,5 +12,8 @@ Route::group(['namespace' => 'Api'], function () {
 
         Route::post('/tweets/{tweet}/likes', 'TweetLikeController@store');
         Route::delete('/tweets/{tweet}/likes', 'TweetLikeController@destroy');
+
+        Route::post('/tweets/{tweet}/retweets', 'TweetRetweetController@store');
+        Route::delete('/tweets/{tweet}/retweets', 'TweetRetweetController@destroy');
     });
 });
