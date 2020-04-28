@@ -2013,17 +2013,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var media;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/tweets', _this.form);
+                return _this.uploadMedia();
 
               case 2:
-                _this.form.body = '';
+                media = _context.sent;
+                _this.form.media = media.data.data.map(function (r) {
+                  return r.id;
+                });
+                _context.next = 6;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/tweets', _this.form);
 
-              case 3:
+              case 6:
+                _this.form.body = '';
+                _this.form.media = [];
+                _this.media.images = [];
+                _this.media.video = null;
+
+              case 10:
               case "end":
                 return _context.stop();
             }
@@ -2031,23 +2043,25 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    getMediaTypes: function getMediaTypes() {
+    uploadMedia: function uploadMedia() {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/media/types');
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/api/media', _this2.buildMediaForm(), {
+                  headers: {
+                    'Content-Type': 'multipart/form-data'
+                  }
+                });
 
               case 2:
-                response = _context2.sent;
-                _this2.mediaTypes = response.data.data;
+                return _context2.abrupt("return", _context2.sent);
 
-              case 4:
+              case 3:
               case "end":
                 return _context2.stop();
             }
@@ -2055,16 +2069,55 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    handleMediaSelected: function handleMediaSelected(files) {
+    getMediaTypes: function getMediaTypes() {
       var _this3 = this;
 
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/media/types');
+
+              case 2:
+                response = _context3.sent;
+                _this3.mediaTypes = response.data.data;
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    buildMediaForm: function buildMediaForm() {
+      var form = new FormData();
+
+      if (this.media.images.length) {
+        this.media.images.forEach(function (image, index) {
+          form.append("media[".concat(index, "]"), image);
+        });
+      }
+
+      if (this.media.video) {
+        form.append('media[0]', this.media.video);
+      }
+
+      return form;
+    },
+    handleMediaSelected: function handleMediaSelected(files) {
+      var _this4 = this;
+
       Array.from(files).slice(0, 4).forEach(function (file) {
-        if (_this3.mediaTypes.image.includes(file.type)) {
-          _this3.media.images.push(file);
+        if (_this4.mediaTypes.image.includes(file.type)) {
+          _this4.media.images.push(file);
         }
 
-        if (_this3.mediaTypes.video.includes(file.type)) {
-          _this3.media.video = file;
+        if (_this4.mediaTypes.video.includes(file.type)) {
+          _this4.media.video = file;
         }
       });
 
@@ -2966,11 +3019,46 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     tweet: {
       required: true,
       type: Object
+    }
+  },
+  computed: {
+    images: function images() {
+      return this.tweet.media.data.filter(function (m) {
+        return m.type === 'image';
+      });
+    },
+    video: function video() {
+      return this.tweet.media.data.filter(function (m) {
+        return m.type === 'video';
+      })[0];
     }
   }
 });
@@ -50055,9 +50143,51 @@ var render = function() {
             _vm._v(_vm._s(_vm.tweet.body))
           ]),
           _vm._v(" "),
+          _vm.images.length
+            ? [
+                _c(
+                  "div",
+                  {
+                    staticClass: "grid gap-2 mt-3 mb-5",
+                    class: {
+                      "grid-cols-2": _vm.images.length > 1
+                    }
+                  },
+                  _vm._l(_vm.images, function(image, index) {
+                    return _c(
+                      "div",
+                      {
+                        key: index,
+                        staticClass:
+                          "relative pb-2/3 rounded-lg overflow-hidden"
+                      },
+                      [
+                        _c("img", {
+                          staticClass: "absolute h-full w-full object-cover",
+                          attrs: { src: image.url, alt: "" }
+                        })
+                      ]
+                    )
+                  }),
+                  0
+                )
+              ]
+            : _vm._e(),
+          _vm._v(" "),
+          _vm.video
+            ? [
+                _c("div", { staticClass: "mt-3 mb-5" }, [
+                  _c("video", {
+                    staticClass: "w-full rounded-lg focus:outline-none",
+                    attrs: { src: _vm.video.url, preload: "", controls: "" }
+                  })
+                ])
+              ]
+            : _vm._e(),
+          _vm._v(" "),
           _c("app-tweet-action-group", { attrs: { tweet: _vm.tweet } })
         ],
-        1
+        2
       )
     ],
     1

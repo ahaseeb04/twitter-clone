@@ -15,10 +15,6 @@ module.exports = {
             maxWidth: {
                 '36': '9rem',
                 '40': '10rem'
-            },
-
-            spacing: {
-                '2/3': '66.6666666667%'
             }
         },
     },

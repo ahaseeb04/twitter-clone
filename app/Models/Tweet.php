@@ -62,4 +62,14 @@ class Tweet extends Model
     {
         return $this->hasMany(Like::class);
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function media()
+    {
+        return $this->hasMany(TweetMedia::class);
+    }
 }

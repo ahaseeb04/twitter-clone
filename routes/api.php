@@ -18,6 +18,8 @@ Route::group(['namespace' => 'Api'], function () {
     });
 
     Route::group(['namespace' => 'Media'], function () {
+        Route::post('/media', 'MediaController@store');
+        
         Route::get('/media/types', 'MediaTypesController@index');
     });
 });

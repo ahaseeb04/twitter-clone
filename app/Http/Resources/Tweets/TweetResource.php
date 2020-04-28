@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Tweets;
 
 use App\Http\Resources\UserResource;
+use App\Http\Resources\Media\MediaCollection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TweetResource extends JsonResource
@@ -19,6 +20,7 @@ class TweetResource extends JsonResource
             'id' => $this->id,
             'body' => $this->body,
             'type' => $this->type,
+            'media' => new MediaCollection($this->media),
             'likes_count' => $this->likes->count(),
             'retweets_count' => $this->retweets->count(),
             'created_at' => $this->created_at->timestamp,
