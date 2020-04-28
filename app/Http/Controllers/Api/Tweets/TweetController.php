@@ -7,7 +7,6 @@ use App\Models\TweetMedia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Events\Tweets\TweetWasCreated;
-use App\Http\Requests\Tweets\TweetStoreRequest;
 
 class TweetController extends Controller
 {
@@ -23,11 +22,15 @@ class TweetController extends Controller
     /**
      * Undocumented function
      *
-     * @param TweetStoreRequest $request
+     * @param Request $request
      * @return void
      */
-    public function store(TweetStoreRequest $request)
+    public function store(Request $request)
     {
+        $this->validate($request, [
+            'body' => $request->media ? 'max:280' : 'required|max:280'
+        ]);
+
         $tweet = $request->user()->tweets()->create(array_merge($request->only('body'), [
             'type' => TweetType::TWEET
         ]));

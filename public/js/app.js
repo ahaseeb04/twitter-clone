@@ -49457,7 +49457,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "mb-5 h-1 w-full rounded-full bg-gray-800" },
+    { staticClass: "mb-5 h-1 w-full rounded-full overflow-hidden bg-gray-800" },
     [
       _c("div", {
         staticClass: "h-1 bg-blue-500",
