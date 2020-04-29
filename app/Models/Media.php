@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Media;
+namespace App\Models;
 
 use App\Media\MediaTypes;
 use Spatie\MediaLibrary\MediaCollections\Models\Media as BaseMedia;

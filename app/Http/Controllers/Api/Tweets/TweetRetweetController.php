@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\Tweets;
 
 use App\Models\Tweet;
-use App\Tweets\TweetType;
+use App\Tweets\TweetTypes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Events\Tweets\TweetWasCreated;
@@ -23,7 +23,7 @@ class TweetRetweetController extends Controller
     {
         $retweet = $request->user()->tweets()->create([
             'original_tweet_id' => $tweet->id,
-            'type' => TweetType::RETWEET
+            'type' => TweetTypes::RETWEET
         ]);
 
         broadcast(new TweetWasCreated($retweet));

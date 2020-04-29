@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Tweets\TweetType;
+use App\Tweets\TweetTypes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -123,8 +123,8 @@ class User extends Authenticatable
     public function retweets()
     {
         return $this->hasMany(Tweet::class)->where(function($query) {
-            return $query->where('type', TweetType::RETWEET)
-                ->orWhere('type', TweetType::QUOTE);
+            return $query->where('type', TweetTypes::RETWEET)
+                ->orWhere('type', TweetTypes::QUOTE);
         });
     }
 }

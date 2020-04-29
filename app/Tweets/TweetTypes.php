@@ -2,7 +2,7 @@
 
 namespace App\Tweets;
 
-class TweetType
+class TweetTypes
 {
     const TWEET = 'tweet';
     const RETWEET = 'retweet';

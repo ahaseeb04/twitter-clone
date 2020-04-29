@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Api\Tweets;
 
-use App\Tweets\TweetType;
 use App\Models\TweetMedia;
+use App\Tweets\TweetTypes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Events\Tweets\TweetWasCreated;
@@ -32,7 +32,7 @@ class TweetController extends Controller
         ]);
 
         $tweet = $request->user()->tweets()->create(array_merge($request->only('body'), [
-            'type' => TweetType::TWEET
+            'type' => TweetTypes::TWEET
         ]));
 
         foreach ($request->media as $id) {

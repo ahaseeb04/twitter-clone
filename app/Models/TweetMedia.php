@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Media\Media;
 use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
