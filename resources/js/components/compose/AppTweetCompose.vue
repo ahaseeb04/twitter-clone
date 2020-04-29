@@ -121,7 +121,7 @@
 
         methods: {
             async submit () {
-                if (this.media.images.length || this.media.video) {
+                if (this.userHasSelectedMedia) {
                     let media = await this.uploadMedia()
     
                     this.form.media = media.data.data.map(r => r.id)

@@ -2052,7 +2052,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                if (!(_this.media.images.length || _this.media.video)) {
+                if (!_this.userHasSelectedMedia) {
                   _context.next = 5;
                   break;
                 }
