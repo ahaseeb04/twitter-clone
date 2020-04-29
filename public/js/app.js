@@ -2015,6 +2015,33 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       mediaTypes: {}
     };
   },
+  computed: {
+    disableSubmitButton: function disableSubmitButton() {
+      // The button should be disabled if the form body is empty
+      // or if it exceeds the maximum limit, but if the user selects
+      // an image or a video, then we want to enable it.
+      if (this.formBodyIsEmpty || this.formBodyExceedsTheLimit) {
+        if (this.userHasSelectedMedia) {
+          if (this.formBodyExceedsTheLimit) {
+            return true;
+          }
+
+          return false;
+        }
+
+        return true;
+      }
+    },
+    formBodyIsEmpty: function formBodyIsEmpty() {
+      return this.form.body.length === 0;
+    },
+    formBodyExceedsTheLimit: function formBodyExceedsTheLimit() {
+      return this.form.body.length > 280;
+    },
+    userHasSelectedMedia: function userHasSelectedMedia() {
+      return this.media.images.length || this.media.video;
+    }
+  },
   methods: {
     submit: function submit() {
       var _this = this;
@@ -49191,7 +49218,7 @@ var render = function() {
                       "px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white focus:outline-none",
                     class: {
                       "opacity-50 pointer-events-none select-none":
-                        _vm.form.body.length > 280
+                        _vm.disableSubmitButton
                     },
                     attrs: { type: "submit" }
                   },

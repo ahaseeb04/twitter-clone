@@ -56,7 +56,7 @@
                         type="submit" 
                         class="px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white focus:outline-none"
                         :class="{
-                            'opacity-50 pointer-events-none select-none': form.body.length > 280
+                            'opacity-50 pointer-events-none select-none': disableSubmitButton
                         }"
                     >
                         Tweet
@@ -85,6 +85,37 @@
                 },
 
                 mediaTypes: {}
+            }
+        },
+
+        computed: {
+            disableSubmitButton () {
+                // The button should be disabled if the form body is empty
+                // or if it exceeds the maximum limit, but if the user selects
+                // an image or a video, then we want to enable it.
+                if (this.formBodyIsEmpty || this.formBodyExceedsTheLimit) {
+                    if (this.userHasSelectedMedia) {
+                        if (this.formBodyExceedsTheLimit) {
+                            return true
+                        }
+
+                        return false
+                    }
+
+                    return true
+                }
+            },
+
+            formBodyIsEmpty () {
+                return this.form.body.length === 0
+            },
+
+            formBodyExceedsTheLimit () {
+                return this.form.body.length > 280
+            },
+
+            userHasSelectedMedia () {
+                return this.media.images.length || this.media.video
             }
         },
 
