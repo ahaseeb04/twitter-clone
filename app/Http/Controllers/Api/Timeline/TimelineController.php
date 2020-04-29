@@ -31,10 +31,12 @@ class TimelineController extends Controller
                 'user',
                 'likes',
                 'retweets',
+                'media.baseMedia',
                 'originalTweet',
                 'originalTweet.user',
                 'originalTweet.likes',
-                'originalTweet.retweets'
+                'originalTweet.retweets',
+                'originalTweet.media.baseMedia'
             ])
             ->paginate(25);
 
