@@ -54,7 +54,7 @@
 
                     <button
                         type="submit" 
-                        class="px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white focus:outline-none"
+                        class="px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white transition-colors ease-in duration-75 hover:bg-blue-600 focus:outline-none"
                         :class="{
                             'opacity-50 pointer-events-none select-none': disableSubmitButton
                         }"

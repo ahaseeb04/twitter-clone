@@ -49215,7 +49215,7 @@ var render = function() {
                   "button",
                   {
                     staticClass:
-                      "px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white focus:outline-none",
+                      "px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white transition-colors ease-in duration-75 hover:bg-blue-600 focus:outline-none",
                     class: {
                       "opacity-50 pointer-events-none select-none":
                         _vm.disableSubmitButton
@@ -49757,7 +49757,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "w-full inline-block p-4 cursor-pointer hover:bg-gray-800" },
+    {
+      staticClass:
+        "w-full inline-block p-4 cursor-pointer transition-colors ease-in duration-75 hover:bg-gray-800"
+    },
     [
       _c("app-tweet-variant-" + _vm.tweet.type, {
         tag: "component",

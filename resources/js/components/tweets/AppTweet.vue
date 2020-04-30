@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full inline-block p-4 cursor-pointer hover:bg-gray-800">
+    <div class="w-full inline-block p-4 cursor-pointer transition-colors ease-in duration-75 hover:bg-gray-800">
         <component 
             :is="`app-tweet-variant-${tweet.type}`"
             :tweet="tweet"
