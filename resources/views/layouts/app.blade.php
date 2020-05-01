@@ -20,6 +20,8 @@
         <div id="app">
             <div class="max-w-4xl mx-auto">
                 @yield('content')
+
+                <modals-container /> 
             </div>
         </div>
 

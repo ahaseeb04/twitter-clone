@@ -20,6 +20,7 @@ module.exports = {
     },
 
     variants: {
+        backgroundColor: ['responsive', 'hover', 'focus', 'important'],
         textColor: ['responsive', 'hover', 'focus', 'important']
     },
     

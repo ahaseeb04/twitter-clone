@@ -9,10 +9,21 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 import Vuex from 'vuex';
+import VueModal from 'vue-js-modal';
 import VueObserveVisibility from 'vue-observe-visibility';
 
 Vue.use(Vuex);
 Vue.use(VueObserveVisibility);
+
+Vue.use(VueModal, {
+    dynamic: true,
+    injectModalContainers: true,
+    dynamicDefaults: {
+        pivotY: 0.1,
+        height: 'auto',
+        classes: 'p-4 rounded-lg !bg-gray-900'
+    }
+});
 
 Vue.prototype.$user = User;
 
