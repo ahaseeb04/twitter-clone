@@ -21,7 +21,7 @@ Vue.use(VueModal, {
     dynamicDefaults: {
         pivotY: 0.1,
         height: 'auto',
-        classes: 'p-4 rounded-lg !bg-gray-900'
+        classes: 'p-4 !rounded-lg !bg-gray-900'
     }
 });
 

@@ -64101,7 +64101,7 @@ Vue.use(vue_js_modal__WEBPACK_IMPORTED_MODULE_1___default.a, {
   dynamicDefaults: {
     pivotY: 0.1,
     height: 'auto',
-    classes: 'p-4 rounded-lg !bg-gray-900'
+    classes: 'p-4 !rounded-lg !bg-gray-900'
   }
 });
 Vue.prototype.$user = User;
