@@ -10,40 +10,12 @@
         <div class="flex-grow space-y-2">
             <app-tweet-compose-textarea 
                 v-model="form.body"
-                placeholder="What's happening?"
+                placeholder="Add a comment"
             />
-
-            <div v-if="media.progress">
-                <app-tweet-media-progress 
-                    :progress="media.progress" 
-                />
-            </div>
-
-            <div v-if="media.images.length">
-                <app-tweet-image-preview
-                    :images="media.images"
-                    @removed="removeImage"
-                />
-            </div>
-
-            <div v-if="media.video">
-                <app-tweet-video-preview
-                    :video="media.video"
-                    @removed="removeVideo"
-                />
-            </div>
         
             <div class="flex justify-between items-center">
                 <ul class="flex items-center space-x-4">
-                    <li>
-                        <app-tweet-compose-media-button 
-                            @selected="handleMediaSelected"
-                            id="media-compose"
-                            :class="{
-                                'opacity-50 pointer-events-none select-none': media.images.length === 4 || media.video
-                            }"
-                        />
-                    </li>
+                    <!--  -->
                 </ul>
 
                 <div class="flex items-center justify-end space-x-2">
@@ -60,7 +32,7 @@
                             'opacity-50 pointer-events-none select-none': disableSubmitButton
                         }"
                     >
-                        Tweet
+                        Retweet
                     </button>
                 </div>
             </div>
@@ -70,6 +42,7 @@
 
 <script>
     import axios from 'axios'
+    import { mapActions } from 'vuex'
     import compose from '../../mixins/compose'
 
     export default {
@@ -77,9 +50,25 @@
             compose
         ],
 
+        props: {
+            tweet: {
+                required: true,
+                type: Object
+            }
+        },
+
         methods: {
+            ...mapActions({
+                quoteTweet: 'timeline/quoteTweet'
+            }),
+
             async post () {
-                await axios.post('/api/tweets', this.form)
+                await this.quoteTweet({
+                    tweet: this.tweet,
+                    data: this.form
+                })
+
+                this.$emit('success')
             }
         }
     }
