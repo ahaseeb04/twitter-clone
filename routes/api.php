@@ -7,16 +7,16 @@ Route::group(['namespace' => 'Api'], function () {
         Route::get('/timeline', 'TimelineController@index');
     });
 
-    Route::group(['namespace' => 'Tweets'], function () {
-        Route::post('/tweets', 'TweetController@store');
+    Route::group(['prefix' => '/tweets', 'namespace' => 'Tweets'], function () {
+        Route::post('/', 'TweetController@store');
 
-        Route::post('/tweets/{tweet}/likes', 'TweetLikeController@store');
-        Route::delete('/tweets/{tweet}/likes', 'TweetLikeController@destroy');
+        Route::post('/{tweet}/likes', 'TweetLikeController@store');
+        Route::delete('/{tweet}/likes', 'TweetLikeController@destroy');
 
-        Route::post('/tweets/{tweet}/retweets', 'TweetRetweetController@store');
-        Route::delete('/tweets/{tweet}/retweets', 'TweetRetweetController@destroy');
+        Route::post('/{tweet}/retweets', 'TweetRetweetController@store');
+        Route::delete('/{tweet}/retweets', 'TweetRetweetController@destroy');
 
-        Route::post('/tweets/{tweet}/quotes', 'TweetQuoteController@store');
+        Route::post('/{tweet}/quotes', 'TweetQuoteController@store');
     });
 
     Route::group(['namespace' => 'Media'], function () {
