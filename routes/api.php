@@ -23,9 +23,9 @@ Route::group(['namespace' => 'Api'], function () {
         });
     });
 
-    Route::group(['namespace' => 'Media'], function () {
-        Route::post('/media', 'MediaController@store');
+    Route::group(['prefix' => '/media', 'namespace' => 'Media'], function () {
+        Route::post('/', 'MediaController@store');
         
-        Route::get('/media/types', 'MediaTypesController@index');
+        Route::get('/types', 'MediaTypesController@index');
     });
 });
