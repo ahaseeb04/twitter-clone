@@ -14,6 +14,14 @@ class TweetRetweetController extends Controller
 {
     /**
      * Undocumented function
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth:sanctum']);
+    }
+
+    /**
+     * Undocumented function
      *
      * @param Tweet $tweet
      * @param Request $request

@@ -10,13 +10,17 @@ Route::group(['namespace' => 'Api'], function () {
     Route::group(['prefix' => '/tweets', 'namespace' => 'Tweets'], function () {
         Route::post('/', 'TweetController@store');
 
-        Route::post('/{tweet}/likes', 'TweetLikeController@store');
-        Route::delete('/{tweet}/likes', 'TweetLikeController@destroy');
+        Route::group(['prefix' => '/{tweet}'], function () {
+            Route::post('/replies', 'TweetReplyController@store');
 
-        Route::post('/{tweet}/retweets', 'TweetRetweetController@store');
-        Route::delete('/{tweet}/retweets', 'TweetRetweetController@destroy');
+            Route::post('/retweets', 'TweetRetweetController@store');
+            Route::delete('/retweets', 'TweetRetweetController@destroy');
 
-        Route::post('/{tweet}/quotes', 'TweetQuoteController@store');
+            Route::post('/quotes', 'TweetQuoteController@store');
+
+            Route::post('/likes', 'TweetLikeController@store');
+            Route::delete('/likes', 'TweetLikeController@destroy');
+        });
     });
 
     Route::group(['namespace' => 'Media'], function () {

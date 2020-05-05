@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 class Tweet extends Model
 {
@@ -12,6 +13,17 @@ class Tweet extends Model
      * @var array
      */
     protected $guarded = [];
+    
+    /**
+     * Undocumented function
+     *
+     * @param Builder $builder
+     * @return void
+     */
+    public function scopeParent(Builder $builder)
+    {
+        $builder->whereNull('parent_id');
+    }
 
     /**
      * Undocumented function
@@ -41,6 +53,16 @@ class Tweet extends Model
     public function retweetedTweet()
     {
         return $this->hasOne(Tweet::class, 'original_tweet_id', 'id');
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function replies()
+    {
+        return $this->hasMany(Tweet::class, 'parent_id');
     }
 
     /**

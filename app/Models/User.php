@@ -110,9 +110,12 @@ class User extends Authenticatable
      *
      * @return void
      */
-    public function likes()
+    public function retweets()
     {
-        return $this->hasMany(Like::class);
+        return $this->hasMany(Tweet::class)->where(function($query) {
+            return $query->where('type', TweetTypes::RETWEET)
+                ->orWhere('type', TweetTypes::QUOTE);
+        });
     }
 
     /**
@@ -120,11 +123,8 @@ class User extends Authenticatable
      *
      * @return void
      */
-    public function retweets()
+    public function likes()
     {
-        return $this->hasMany(Tweet::class)->where(function($query) {
-            return $query->where('type', TweetTypes::RETWEET)
-                ->orWhere('type', TweetTypes::QUOTE);
-        });
+        return $this->hasMany(Like::class);
     }
 }

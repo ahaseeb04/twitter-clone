@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Api\Tweets;
 
 use App\Models\Tweet;
+use App\Models\TweetMedia;
 use App\Tweets\TweetTypes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Events\Tweets\TweetWasCreated;
-use App\Events\Tweets\TweetRetweetsWereUpdated;
 
-class TweetQuoteController extends Controller
+class TweetReplyController extends Controller
 {
     /**
      * Undocumented function
@@ -28,13 +27,17 @@ class TweetQuoteController extends Controller
      */
     public function store(Tweet $tweet, Request $request)
     {
-        $retweet = $request->user()->tweets()->create([
-            'original_tweet_id' => $tweet->id,
-            'body' => $request->body,
-            'type' => TweetTypes::QUOTE
+        $this->validate($request, [
+            'body' => $request->media ? 'max:280' : 'required|max:280'
         ]);
 
-        broadcast(new TweetWasCreated($retweet));
-        broadcast(new TweetRetweetsWereUpdated($request->user(), $tweet));
+        $reply = $request->user()->tweets()->create(array_merge($request->only('body'), [
+            'parent_id' => $tweet->id,
+            'type' => TweetTypes::TWEET
+        ]));
+
+        foreach ($request->media as $id) {
+            $reply->media()->save(TweetMedia::find($id));
+        }
     }
 }

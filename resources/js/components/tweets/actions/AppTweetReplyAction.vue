@@ -1,5 +1,9 @@
 <template>
-    <a href="#" class="flex items-center text-base space-x-2">
+    <a 
+        href="#" 
+        class="flex items-center text-base space-x-2"
+        @click.prevent="$modal.show(AppTweetReplyModal, { tweet })"
+    >
         <svg
             class="w-5 fill-current text-cool-gray-500"
             xmlns="http://www.w3.org/2000/svg" 
@@ -10,6 +14,27 @@
             />
         </svg>
 
-        <span class="text-cool-gray-500">0</span>
+        <span class="text-cool-gray-500">
+            {{ tweet.replies_count }}
+        </span>
     </a>
 </template>
+
+<script>
+    import AppTweetReplyModal from '../../modals/AppTweetReplyModal'
+
+    export default {
+        data () {
+            return {
+                AppTweetReplyModal
+            }
+        },
+
+        props: {
+            tweet: {
+                required: true,
+                type: Object
+            }
+        }
+    }
+</script>

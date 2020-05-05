@@ -1,7 +1,9 @@
 <template>
     <ul class="mt-4 flex md:space-x-24">
         <li class="w-3/12 md:w-auto">
-            <app-tweet-reply-action />
+            <app-tweet-reply-action 
+                :tweet="tweet"
+            />
         </li>
 
         <li class="w-3/12 md:w-auto">
