@@ -11,6 +11,7 @@ class MediaTypes
      */
     public static $image = [
         'image/png',
+        'image/gif',
         'image/jpg',
         'image/jpeg',
     ];
