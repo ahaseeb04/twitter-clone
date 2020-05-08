@@ -7,6 +7,7 @@ use App\Models\TweetMedia;
 use App\Tweets\TweetTypes;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Events\Tweets\TweetRepliesWereUpdated;
 
 class TweetReplyController extends Controller
 {
@@ -39,5 +40,7 @@ class TweetReplyController extends Controller
         foreach ($request->media as $id) {
             $reply->media()->save(TweetMedia::find($id));
         }
+
+        broadcast(new TweetRepliesWereUpdated($tweet));
     }
 }
