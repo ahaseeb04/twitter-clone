@@ -27,3 +27,7 @@ Route::group(['prefix' => '/media', 'namespace' => 'Media'], function () {
     
     Route::get('/types', 'MediaTypesController@index');
 });
+
+Route::group(['prefix' => '/notifications', 'namespace' => 'Notifications'], function () {
+    Route::get('/', 'NotificationController@index');
+});
