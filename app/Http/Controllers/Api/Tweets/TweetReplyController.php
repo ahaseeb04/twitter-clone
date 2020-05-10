@@ -28,9 +28,7 @@ class TweetReplyController extends Controller
      */
     public function store(Tweet $tweet, Request $request)
     {
-        $this->validate($request, [
-            'body' => $request->media ? 'max:280' : 'required|max:280'
-        ]);
+        $this->validateFormBody($request);
 
         $reply = $request->user()->tweets()->create(array_merge($request->only('body'), [
             'parent_id' => $tweet->id,

@@ -10,4 +10,17 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $request
+     * @return void
+     */
+    protected function validateFormBody($request)
+    {
+        $this->validate($request, [
+            'body' => $request->media ? 'max:280' : 'required|max:280'
+        ]);
+    }
 }

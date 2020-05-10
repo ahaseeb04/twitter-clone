@@ -27,9 +27,7 @@ class TweetController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'body' => $request->media ? 'max:280' : 'required|max:280'
-        ]);
+        $this->validateFormBody($request);
 
         $tweet = $request->user()->tweets()->create(array_merge($request->only('body'), [
             'type' => TweetTypes::TWEET
