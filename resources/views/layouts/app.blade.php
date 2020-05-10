@@ -16,7 +16,7 @@
             }
         </script>
     </head>
-    <body class="antialiased font-sans bg-gray-900 text-gray-300">
+    <body class="antialiased bg-gray-900 text-gray-300">
         <div id="app">
             <div class="max-w-4xl mx-auto">
                 @yield('content')
