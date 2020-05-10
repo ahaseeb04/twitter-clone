@@ -4,6 +4,10 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
     theme: {
         extend: {
+            borderColor: {
+                default: defaultTheme.colors.gray[800]
+            },
+
             boxShadow: {
                 light: '0 0 15px 0 rgba(255, 255, 255, .1)'
             },
