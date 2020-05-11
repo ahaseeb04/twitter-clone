@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Media;
+namespace App\Support\Media;
 
 class MediaTypes
 {

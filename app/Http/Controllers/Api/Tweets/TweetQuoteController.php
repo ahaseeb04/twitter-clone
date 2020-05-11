@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\Tweets;
 
 use App\Models\Tweet;
-use App\Tweets\TweetTypes;
 use Illuminate\Http\Request;
+use App\Support\Tweets\TweetTypes;
 use App\Http\Controllers\Controller;
 use App\Events\Tweets\TweetWasCreated;
 use App\Events\Tweets\TweetRetweetsWereUpdated;

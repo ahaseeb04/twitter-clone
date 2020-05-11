@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Media;
 
-use App\Media\MediaTypes;
+use App\Support\Media\MediaTypes;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MediaStoreRequest extends FormRequest

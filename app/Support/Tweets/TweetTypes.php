@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tweets;
+namespace App\Support\Tweets;
 
 class TweetTypes
 {
