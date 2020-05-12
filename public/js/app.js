@@ -50439,7 +50439,10 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "flex w-full" },
+    {
+      staticClass:
+        "flex w-full cursor-pointer transition-colors ease-in duration-75 hover:bg-gray-800"
+    },
     [
       _c("AppNotification" + _vm.notification.type, {
         tag: "component",
