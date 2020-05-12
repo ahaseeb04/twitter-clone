@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col w-full p-4">
+    <div class="flex-grow p-4">
         <app-user-avatar :avatar="notification.data.user.avatar" sm />
 
         <div class="mt-3 flex space-x-1">

@@ -7,6 +7,7 @@ Route::group(['prefix' => '/timeline', 'namespace' => 'Timeline'], function () {
 });
 
 Route::group(['prefix' => '/tweets', 'namespace' => 'Tweets'], function () {
+    Route::get('/', 'TweetController@index');
     Route::post('/', 'TweetController@store');
 
     Route::group(['prefix' => '/{tweet}'], function () {

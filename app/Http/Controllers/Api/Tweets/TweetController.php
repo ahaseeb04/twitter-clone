@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Api\Tweets;
 
+use App\Models\Tweet;
 use App\Models\TweetMedia;
 use Illuminate\Http\Request;
 use App\Support\Tweets\TweetTypes;
 use App\Http\Controllers\Controller;
 use App\Events\Tweets\TweetWasCreated;
+use App\Http\Resources\Tweets\TweetCollection;
 
 class TweetController extends Controller
 {
@@ -17,6 +19,17 @@ class TweetController extends Controller
     {
         $this->middleware(['auth:sanctum'])
             ->only(['store']);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function index(Request $request)
+    {
+        return new TweetCollection(Tweet::find(explode(',', $request->ids)));
     }
 
     /**

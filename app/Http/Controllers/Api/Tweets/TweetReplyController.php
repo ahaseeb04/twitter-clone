@@ -41,7 +41,7 @@ class TweetReplyController extends Controller
         }
 
         if ($request->user()->id !== $tweet->user_id) {
-            $tweet->user->notify(new TweetRepliedTo($request->user(), $tweet));
+            $tweet->user->notify(new TweetRepliedTo($request->user(), $reply));
         }
         
         broadcast(new TweetRepliesWereUpdated($tweet));
