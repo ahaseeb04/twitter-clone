@@ -18,7 +18,6 @@ class TweetResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'parent_id' => $this->parent_id,
             'body' => $this->body,
             'type' => $this->type,
             'media' => new MediaCollection($this->media),

@@ -51306,7 +51306,7 @@ var render = function() {
         [
           _c("app-tweet-username", { attrs: { user: _vm.tweet.user } }),
           _vm._v(" "),
-          _vm.tweet.parent_id
+          _vm.tweet.parent_tweet
             ? [
                 _c("div", { staticClass: "mb-2 text-sm text-cool-gray-400" }, [
                   _vm._v("\n                Replying to \n                "),
