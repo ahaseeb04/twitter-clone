@@ -9,9 +9,7 @@
         </div>
 
         <div class="w-full md:w-8/12 border border-gray-800 border-t-0 border-b-0">
-            <div class="p-4">
-                Lorem ipsum dolor sit amet.
-            </div>
+            <app-notifications />
         </div>
     </div>
 @endsection
