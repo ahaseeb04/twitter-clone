@@ -9,6 +9,13 @@
                 :user="tweet.user"
             />
 
+            <template v-if="tweet.parent_id">
+                <div class="mb-2 text-sm text-cool-gray-400">
+                    Replying to 
+                    <span class="text-blue-500">@{{ tweet.parent_tweet.user.username }}</span>
+                </div>
+            </template>
+
             <p class="whitespace-pre-wrap">{{ tweet.body }}</p>
 
             <template v-if="images.length">

@@ -40,6 +40,16 @@ class Tweet extends Model
      *
      * @return void
      */
+    public function parentTweet()
+    {
+        return $this->hasOne(Tweet::class, 'id', 'parent_id');
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function originalTweet()
     {
         return $this->hasOne(Tweet::class, 'id', 'original_tweet_id');

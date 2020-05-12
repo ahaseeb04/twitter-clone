@@ -3547,6 +3547,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     tweet: {
@@ -51298,6 +51305,17 @@ var render = function() {
         { staticClass: "w-full" },
         [
           _c("app-tweet-username", { attrs: { user: _vm.tweet.user } }),
+          _vm._v(" "),
+          _vm.tweet.parent_id
+            ? [
+                _c("div", { staticClass: "mb-2 text-sm text-cool-gray-400" }, [
+                  _vm._v("\n                Replying to \n                "),
+                  _c("span", { staticClass: "text-blue-500" }, [
+                    _vm._v("@" + _vm._s(_vm.tweet.parent_tweet.user.username))
+                  ])
+                ])
+              ]
+            : _vm._e(),
           _vm._v(" "),
           _c("p", { staticClass: "whitespace-pre-wrap" }, [
             _vm._v(_vm._s(_vm.tweet.body))

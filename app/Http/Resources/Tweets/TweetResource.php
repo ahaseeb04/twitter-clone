@@ -18,6 +18,7 @@ class TweetResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'parent_id' => $this->parent_id,
             'body' => $this->body,
             'type' => $this->type,
             'media' => new MediaCollection($this->media),
@@ -26,6 +27,7 @@ class TweetResource extends JsonResource
             'likes_count' => $this->likes->count(),
             'created_at' => $this->created_at->timestamp,
             'user' => new UserResource($this->user),
+            'parent_tweet' => new TweetResource($this->parentTweet),
             'original_tweet' => new TweetResource($this->originalTweet)
         ];
     }
