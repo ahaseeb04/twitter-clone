@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <p>{{ notification.id }}</p>
+    <div class="flex w-full">
+        <component 
+            :is="`AppNotification${notification.type}`"
+            :notification="notification"
+        />
     </div>
 </template>
 
