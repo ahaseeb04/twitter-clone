@@ -10,4 +10,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/notifications', 'Notifications\NotificationController@index');
+Route::group(['prefix' => '/notifications', 'namespace' => 'Notifications'], function () {
+    Route::get('/', 'NotificationController@index');
+});
