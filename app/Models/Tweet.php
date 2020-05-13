@@ -104,4 +104,14 @@ class Tweet extends Model
     {
         return $this->hasMany(TweetMedia::class);
     }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function entities()
+    {
+        return $this->hasMany(Entity::class);
+    }
 }
