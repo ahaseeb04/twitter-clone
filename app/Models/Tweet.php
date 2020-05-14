@@ -13,6 +13,20 @@ class Tweet extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::created(function (Tweet $tweet) {
+            preg_match_all('/(?!\s)#([A-Za-z]\w*)\b/', $tweet->body, $matches, PREG_OFFSET_CAPTURE);
+        });
+    }
     
     /**
      * Undocumented function
