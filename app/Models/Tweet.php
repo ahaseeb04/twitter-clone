@@ -14,22 +14,6 @@ class Tweet extends Model
      * @var array
      */
     protected $guarded = [];
-
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::created(function (Tweet $tweet) {
-            $tweet->entities()->createMany(
-                (new EntityExtractor($tweet->body))->getHashtagEntities()
-            );
-        });
-    }
     
     /**
      * Undocumented function
