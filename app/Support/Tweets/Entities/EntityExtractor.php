@@ -4,14 +4,14 @@ namespace App\Support\Tweets\Entities;
 
 class EntityExtractor
 {
+    const HASHTAG_REGEX = '/(?!\s)#([A-Za-z]\w*)\b/';
+
     /**
      * Undocumented variable
      *
      * @var [type]
      */
     protected $string;
-
-    const HASHTAG_REGEX = '/(?!\s)#([A-Za-z]\w*)\b/';
 
     /**
      * Undocumented function
@@ -31,7 +31,7 @@ class EntityExtractor
     public function getHashtagEntities()
     {
         return $this->buildEntityCollection(
-            $this->match(self::HASHTAG_REGEX), 'hashtag'
+            $this->match(self::HASHTAG_REGEX), EntityTypes::HASHTAG
         );
     }
     
