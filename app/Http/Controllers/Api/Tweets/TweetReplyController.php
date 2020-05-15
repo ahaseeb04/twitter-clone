@@ -29,7 +29,7 @@ class TweetReplyController extends Controller
      */
     public function store(Tweet $tweet, Request $request)
     {
-        $this->validateFormBody($request);
+        $this->validateFormData($request);
 
         $reply = $request->user()->tweets()->create(array_merge($request->only('body'), [
             'parent_id' => $tweet->id,

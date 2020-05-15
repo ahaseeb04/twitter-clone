@@ -17,7 +17,7 @@ class Controller extends BaseController
      * @param [type] $request
      * @return void
      */
-    protected function validateFormBody($request)
+    protected function validateFormData($request)
     {
         $this->validate($request, [
             'body' => $request->media ? 'max:280' : 'required|max:280'

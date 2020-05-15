@@ -28,6 +28,8 @@ class TweetQuoteController extends Controller
      */
     public function store(Tweet $tweet, Request $request)
     {
+        $this->validateFormData($request);
+
         $retweet = $request->user()->tweets()->create([
             'original_tweet_id' => $tweet->id,
             'body' => $request->body,

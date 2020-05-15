@@ -53,7 +53,7 @@ class TweetController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validateFormBody($request);
+        $this->validateFormData($request);
 
         $tweet = $request->user()->tweets()->create(array_merge($request->only('body'), [
             'type' => TweetTypes::TWEET
