@@ -9,6 +9,14 @@ class NotificationController extends Controller
 {
     /**
      * Undocumented function
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Undocumented function
      *
      * @return void
      */
