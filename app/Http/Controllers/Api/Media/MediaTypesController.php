@@ -13,7 +13,7 @@ class MediaTypesController extends Controller
      *
      * @return void
      */
-    public function index()
+    public function __invoke()
     {
         return response()->json([
             'data' => [
