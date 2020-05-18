@@ -3106,8 +3106,26 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     body: function body() {
       return {
-        'template': "<div>".concat(this.tweet.body, "</div>")
+        'template': "<div>".concat(this.replaceEntities(this.tweet.body), "</div>")
       };
+    },
+    entities: function entities() {
+      return this.tweet.entities.data.sort(function (a, b) {
+        return b.start - a.start;
+      });
+    }
+  },
+  methods: {
+    replaceEntities: function replaceEntities(body) {
+      var _this = this;
+
+      this.entities.forEach(function (entity) {
+        body = body.substring(0, entity.start) + _this.entityComponent(entity) + body.substring(entity.end);
+      });
+      return body;
+    },
+    entityComponent: function entityComponent(entity) {
+      return "<app-tweet-entity-".concat(entity.type, " body=\"").concat(entity.body, "\" body_plain=\"").concat(entity.body_plain, "\" />");
     }
   }
 });
@@ -3444,7 +3462,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({// 
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    body: {
+      required: true,
+      type: String
+    },
+    body_plain: {
+      required: true,
+      type: String
+    }
+  }
 });
 
 /***/ }),
@@ -3462,7 +3490,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({// 
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    body: {
+      required: true,
+      type: String
+    },
+    body_plain: {
+      required: true,
+      type: String
+    }
+  }
 });
 
 /***/ }),
@@ -51277,7 +51315,14 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "a",
+    {
+      staticClass: "text-blue-500",
+      attrs: { href: "/hashtags/" + _vm.body_plain }
+    },
+    [_vm._v(_vm._s(_vm.body))]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -51301,7 +51346,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "a",
+    { staticClass: "text-blue-500", attrs: { href: "/" + _vm.body_plain } },
+    [_vm._v(_vm._s(_vm.body))]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
