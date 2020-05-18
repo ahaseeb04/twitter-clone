@@ -16,7 +16,7 @@ class TweetObserver
     public function created(Tweet $tweet)
     {
         $tweet->entities()->createMany(
-            (new EntityExtractor($tweet->body))->getHashtagEntities()
+            (new EntityExtractor($tweet->body))->getAllEntities()
         );
     }
 }

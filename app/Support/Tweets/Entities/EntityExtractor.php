@@ -6,6 +6,8 @@ class EntityExtractor
 {
     const HASHTAG_REGEX = '/(?!\s)#([A-Za-z]\w*)\b/';
 
+    const MENTION_REGEX = '/(?=[^\w!])@(\w+)\b/';
+
     /**
      * Undocumented variable
      *
@@ -33,6 +35,28 @@ class EntityExtractor
         return $this->buildEntityCollection(
             $this->match(self::HASHTAG_REGEX), EntityTypes::HASHTAG
         );
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function getMentionEntities()
+    {
+        return $this->buildEntityCollection(
+            $this->match(self::MENTION_REGEX), EntityTypes::MENTION
+        );
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function getAllEntities()
+    {
+        return array_merge($this->getHashtagEntities(), $this->getMentionEntities());
     }
     
     /**
