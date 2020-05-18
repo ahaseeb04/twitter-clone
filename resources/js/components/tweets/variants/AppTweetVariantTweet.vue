@@ -16,7 +16,7 @@
                 </div>
             </template>
 
-            <p class="whitespace-pre-wrap">{{ tweet.body }}</p>
+            <app-tweet-body :tweet="tweet" />
 
             <template v-if="images.length">
                 <div 

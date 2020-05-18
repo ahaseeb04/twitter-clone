@@ -9,7 +9,7 @@
                 :user="tweet.user"
             />
 
-            <p class="whitespace-pre-wrap">{{ tweet.body }}</p>
+            <app-tweet-body :tweet="tweet" />
 
             <app-tweet
                 class="mt-3 border border-gray-700 rounded-lg" 
