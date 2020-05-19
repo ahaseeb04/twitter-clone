@@ -1,5 +1,5 @@
 <template>
-    <a :href="`/${body_plain}`" class="text-blue-500">{{ body }}</a>
+    <a :href="`/${plain}`" class="text-blue-500">{{ body }}</a>
 </template>
 
 <script>
@@ -10,7 +10,7 @@
                 type: String
             },
 
-            body_plain: {
+            plain: {
                 required: true,
                 type: String
             }

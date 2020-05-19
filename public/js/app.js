@@ -3125,7 +3125,7 @@ __webpack_require__.r(__webpack_exports__);
       return body;
     },
     entityComponent: function entityComponent(entity) {
-      return "<app-tweet-entity-".concat(entity.type, " body=\"").concat(entity.body, "\" body_plain=\"").concat(entity.body_plain, "\" />");
+      return "<app-tweet-entity-".concat(entity.type, " body=\"").concat(entity.body, "\" plain=\"").concat(entity.body_plain, "\" />");
     }
   }
 });
@@ -3468,7 +3468,7 @@ __webpack_require__.r(__webpack_exports__);
       required: true,
       type: String
     },
-    body_plain: {
+    plain: {
       required: true,
       type: String
     }
@@ -3496,7 +3496,7 @@ __webpack_require__.r(__webpack_exports__);
       required: true,
       type: String
     },
-    body_plain: {
+    plain: {
       required: true,
       type: String
     }
@@ -51317,10 +51317,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "a",
-    {
-      staticClass: "text-blue-500",
-      attrs: { href: "/hashtags/" + _vm.body_plain }
-    },
+    { staticClass: "text-blue-500", attrs: { href: "/hashtags/" + _vm.plain } },
     [_vm._v(_vm._s(_vm.body))]
   )
 }
@@ -51348,7 +51345,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "a",
-    { staticClass: "text-blue-500", attrs: { href: "/" + _vm.body_plain } },
+    { staticClass: "text-blue-500", attrs: { href: "/" + _vm.plain } },
     [_vm._v(_vm._s(_vm.body))]
   )
 }

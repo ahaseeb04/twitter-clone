@@ -28,14 +28,16 @@
         methods: {
             replaceEntities (body) {
                 this.entities.forEach((entity) => {
-                    body = body.substring(0, entity.start) + this.entityComponent(entity) + body.substring(entity.end)
+                    body = body.substring(0, entity.start) 
+                        + this.entityComponent(entity) 
+                        + body.substring(entity.end)
                 })
 
                 return body
             },
 
             entityComponent (entity) {
-                return `<app-tweet-entity-${entity.type} body="${entity.body}" body_plain="${entity.body_plain}" />`
+                return `<app-tweet-entity-${entity.type} body="${entity.body}" plain="${entity.body_plain}" />`
             }
         }
     }
