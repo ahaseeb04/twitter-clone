@@ -5,7 +5,6 @@ namespace App\Support\Tweets\Entities;
 class EntityExtractor
 {
     const HASHTAG_REGEX = '/(?!\s)#([A-Za-z]\w*)\b/';
-
     const MENTION_REGEX = '/(?=[^\w!])@(\w+)\b/';
 
     /**
