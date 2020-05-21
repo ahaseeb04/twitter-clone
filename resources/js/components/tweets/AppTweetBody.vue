@@ -33,7 +33,7 @@
                         + body.substring(entity.end)
                 })
 
-                return body
+                return body ?? ''
             },
 
             entityComponent (entity) {
