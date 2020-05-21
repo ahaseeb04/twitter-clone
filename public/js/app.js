@@ -2850,6 +2850,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_notification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/notification */ "./resources/js/mixins/notification.js");
 //
 //
 //
@@ -2892,25 +2893,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    notification: {
-      required: true,
-      type: Object
-    }
-  },
-  computed: {
-    images: function images() {
-      return this.notification.data.tweet.media.data.filter(function (m) {
-        return m.type === 'image';
-      });
-    },
-    video: function video() {
-      return this.notification.data.tweet.media.data.filter(function (m) {
-        return m.type === 'video';
-      })[0];
-    }
-  }
+  mixins: [_mixins_notification__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -2924,6 +2909,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _mixins_notification__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../mixins/notification */ "./resources/js/mixins/notification.js");
 //
 //
 //
@@ -2966,25 +2952,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: {
-    notification: {
-      required: true,
-      type: Object
-    }
-  },
-  computed: {
-    images: function images() {
-      return this.notification.data.tweet.media.data.filter(function (m) {
-        return m.type === 'image';
-      });
-    },
-    video: function video() {
-      return this.notification.data.tweet.media.data.filter(function (m) {
-        return m.type === 'video';
-      })[0];
-    }
-  }
+  mixins: [_mixins_notification__WEBPACK_IMPORTED_MODULE_0__["default"]]
 });
 
 /***/ }),
@@ -68079,6 +68049,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mounted: function mounted() {
     this.getMediaTypes();
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/mixins/notification.js":
+/*!*********************************************!*\
+  !*** ./resources/js/mixins/notification.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    notification: {
+      required: true,
+      type: Object
+    }
+  },
+  computed: {
+    images: function images() {
+      return this.notification.data.tweet.media.data.filter(function (m) {
+        return m.type === 'image';
+      });
+    },
+    video: function video() {
+      return this.notification.data.tweet.media.data.filter(function (m) {
+        return m.type === 'video';
+      })[0];
+    }
   }
 });
 
