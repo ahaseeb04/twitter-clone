@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use App\Support\Tweets\Entities\EntityExtractor;
+use App\Support\Tweets\Entities\EntityTypes;
 
 class Tweet extends Model
 {
@@ -114,5 +114,16 @@ class Tweet extends Model
     public function entities()
     {
         return $this->hasMany(Entity::class);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function mentions()
+    {
+        return $this->hasMany(Entity::class)
+            ->whereType(EntityTypes::MENTION);
     }
 }
