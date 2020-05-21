@@ -35,6 +35,7 @@ class TweetController extends Controller
             'likes',
             'replies',
             'retweets',
+            'entities',
             'media.baseMedia',
             'originalTweet.user',
             'originalTweet.likes',
