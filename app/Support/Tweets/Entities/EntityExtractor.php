@@ -53,7 +53,7 @@ class EntityExtractor
      *
      * @return void
      */
-    public function getAllEntities()
+    public function getEntities()
     {
         return array_merge($this->getHashtagEntities(), $this->getMentionEntities());
     }
