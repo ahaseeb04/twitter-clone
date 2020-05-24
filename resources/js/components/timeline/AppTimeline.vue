@@ -17,9 +17,7 @@
                 v-observe-visibility="{
                     callback: handleScrolledToBottomOfTimeline
                 }"
-            >
-                <!--  -->
-            </div>
+            ></div>
         </template>
     </div>
 </template>
