@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => '/timeline', 'namespace' => 'Timeline'], function () {
-    Route::get('/', 'TimelineController@index');
+    Route::get('/', 'TimelineController');
 });
 
 Route::group(['prefix' => '/tweets', 'namespace' => 'Tweets'], function () {
