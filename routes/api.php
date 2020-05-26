@@ -30,5 +30,5 @@ Route::group(['prefix' => '/media', 'namespace' => 'Media'], function () {
 });
 
 Route::group(['prefix' => '/notifications', 'namespace' => 'Notifications'], function () {
-    Route::get('/', 'NotificationController@index');
+    Route::get('/', 'NotificationController');
 });

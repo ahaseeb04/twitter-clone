@@ -22,7 +22,7 @@ class NotificationController extends Controller
      * @param Request $request
      * @return void
      */
-    public function index(Request $request)
+    public function __invoke(Request $request)
     {
         $notifications = $request->user()
             ->notifications()
