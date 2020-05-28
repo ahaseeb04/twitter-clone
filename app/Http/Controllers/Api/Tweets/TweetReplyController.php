@@ -9,6 +9,7 @@ use App\Support\Tweets\TweetTypes;
 use App\Http\Controllers\Controller;
 use App\Notifications\Tweets\TweetRepliedTo;
 use App\Events\Tweets\TweetRepliesWereUpdated;
+use App\Http\Resources\Tweets\TweetCollection;
 
 class TweetReplyController extends Controller
 {
@@ -17,7 +18,8 @@ class TweetReplyController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth:sanctum']);
+        $this->middleware(['auth:sanctum'])
+            ->only(['store']);
     }
 
     /**
@@ -45,5 +47,16 @@ class TweetReplyController extends Controller
         }
         
         broadcast(new TweetRepliesWereUpdated($tweet));
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param Tweet $tweet
+     * @return void
+     */
+    public function show(Tweet $tweet)
+    {
+        return new TweetCollection($tweet->replies);
     }
 }

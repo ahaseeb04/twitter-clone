@@ -13,6 +13,7 @@ Route::group(['prefix' => '/tweets', 'namespace' => 'Tweets'], function () {
 
     Route::group(['prefix' => '/{tweet}'], function () {
         Route::post('/replies', 'TweetReplyController@store');
+        Route::get('/replies', 'TweetReplyController@show');
 
         Route::post('/retweets', 'TweetRetweetController@store');
         Route::delete('/retweets', 'TweetRetweetController@destroy');
