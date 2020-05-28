@@ -41,9 +41,27 @@ class Tweet extends Model
      *
      * @return void
      */
+    public function parents()
+    {
+        $base = $this;
+        $parents = [];
+
+        while ($base->parentTweet) {
+            $parents[] = $base->parentTweet;
+            $base = $base->parentTweet;
+        }
+
+        return collect($parents);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
     public function parentTweet()
     {
-        return $this->hasOne(Tweet::class, 'id', 'parent_id');
+        return $this->belongsTo(Tweet::class, 'parent_id');
     }
 
     /**

@@ -73,4 +73,15 @@ class TweetController extends Controller
 
         broadcast(new TweetWasCreated($tweet));
     }
+
+    /**
+     * Undocumented function
+     *
+     * @param Tweet $tweet
+     * @return void
+     */
+    public function show(Tweet $tweet)
+    {
+        return new TweetCollection(collect([$tweet])->merge($tweet->parents()));
+    }
 }
