@@ -3,6 +3,7 @@
         <template v-if="tweet">
             <app-tweet-variant-tweet
                 :tweet="tweet"
+                verticalBorderBetweenAvatars
             />
 
             <app-tweet-reply-compose 

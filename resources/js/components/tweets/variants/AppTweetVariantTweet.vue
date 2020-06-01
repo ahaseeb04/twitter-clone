@@ -1,8 +1,21 @@
 <template>
     <div class="flex w-full space-x-3">
-        <app-user-avatar 
-            :avatar="tweet.user.avatar"
-        />
+        <template v-if="verticalBorderBetweenAvatars">
+            <div class="flex-shrink-0">
+                <app-user-avatar 
+                    :avatar="tweet.user.avatar"
+                />
+
+                <div class="w-10 h-full flex justify-center">
+                    <div class="w-3px h-full bg-gray-700"></div>
+                </div>
+            </div>
+        </template>
+        <template v-else>
+            <app-user-avatar 
+                :avatar="tweet.user.avatar"
+            />
+        </template>
 
         <div class="w-full">
             <app-tweet-username 
@@ -33,6 +46,11 @@
             tweet: {
                 required: true,
                 type: Object
+            },
+
+            verticalBorderBetweenAvatars: {
+                required: false,
+                type: Boolean
             }
         },
 

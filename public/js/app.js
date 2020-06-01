@@ -2733,6 +2733,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     tweet: {
@@ -3692,11 +3693,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     tweet: {
       required: true,
       type: Object
+    },
+    verticalBorderBetweenAvatars: {
+      required: false,
+      type: Boolean
     }
   },
   computed: {
@@ -50646,7 +50664,9 @@ var render = function() {
     [
       _vm.tweet
         ? [
-            _c("app-tweet-variant-tweet", { attrs: { tweet: _vm.tweet } }),
+            _c("app-tweet-variant-tweet", {
+              attrs: { tweet: _vm.tweet, verticalBorderBetweenAvatars: "" }
+            }),
             _vm._v(" "),
             _c("app-tweet-reply-compose", {
               attrs: { tweet: _vm.tweet },
@@ -51611,7 +51631,22 @@ var render = function() {
     "div",
     { staticClass: "flex w-full space-x-3" },
     [
-      _c("app-user-avatar", { attrs: { avatar: _vm.tweet.user.avatar } }),
+      _vm.verticalBorderBetweenAvatars
+        ? [
+            _c(
+              "div",
+              { staticClass: "flex-shrink-0" },
+              [
+                _c("app-user-avatar", {
+                  attrs: { avatar: _vm.tweet.user.avatar }
+                }),
+                _vm._v(" "),
+                _vm._m(0)
+              ],
+              1
+            )
+          ]
+        : [_c("app-user-avatar", { attrs: { avatar: _vm.tweet.user.avatar } })],
       _vm._v(" "),
       _c(
         "div",
@@ -51641,10 +51676,19 @@ var render = function() {
         2
       )
     ],
-    1
+    2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "w-10 h-full flex justify-center" }, [
+      _c("div", { staticClass: "w-3px h-full bg-gray-700" })
+    ])
+  }
+]
 render._withStripped = true
 
 
