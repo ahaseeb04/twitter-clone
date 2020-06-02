@@ -10,3 +10,5 @@ mix.sass('resources/scss/app.scss', 'public/css')
          tailwindcss('./tailwind.config.js')
       ]
    })
+
+mix.sourceMaps()
