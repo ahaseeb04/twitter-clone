@@ -16,7 +16,7 @@
         computed: {
             body () {
                 return {
-                    'template': `<div>${this.replaceEntities(this.tweet.body)}</div>`
+                    'template': `<span>${this.replaceEntities(this.tweet.body)}</span>`
                 }
             },
 
