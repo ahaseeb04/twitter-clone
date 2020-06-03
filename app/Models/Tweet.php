@@ -31,16 +31,6 @@ class Tweet extends Model
      *
      * @return void
      */
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @return void
-     */
     public function parents()
     {
         $base = $this;
@@ -52,6 +42,16 @@ class Tweet extends Model
         }
 
         return collect($parents);
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @return void
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     /**

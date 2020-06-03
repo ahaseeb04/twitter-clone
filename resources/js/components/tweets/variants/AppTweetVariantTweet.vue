@@ -17,7 +17,7 @@
             />
         </template>
 
-        <div class="w-full">
+        <div class="min-w-0 w-full">
             <app-tweet-username 
                 :user="tweet.user"
             />

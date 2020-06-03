@@ -6,5 +6,9 @@ export default {
 
     tweet (state) {
         return id => state.tweets.find(t => t.id === id)
+    },
+
+    tweetByUuid (state) {
+        return uuid => state.tweets.find(t => t.uuid === uuid)
     }
 }

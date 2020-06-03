@@ -51,6 +51,16 @@ class User extends Authenticatable
     /**
      * Undocumented function
      *
+     * @return void
+     */
+    public function getRouteKeyName()
+    {
+        return 'username';
+    }
+
+    /**
+     * Undocumented function
+     *
      * @param Tweet $tweet
      * @return boolean
      */

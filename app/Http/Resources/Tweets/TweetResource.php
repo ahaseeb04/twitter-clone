@@ -19,6 +19,7 @@ class TweetResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'uuid' => $this->uuid,
             'body' => $this->body,
             'type' => $this->type,
             'entities' => new EntityCollection($this->entities),

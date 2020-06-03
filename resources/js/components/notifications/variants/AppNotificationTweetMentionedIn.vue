@@ -12,7 +12,7 @@
         </div>
 
         <div class="w-full">
-            <p class="text-cool-gray-400">{{ notification.data.tweet.body }}</p>
+            <p class="whitespace-pre-wrap text-cool-gray-400">{{ notification.data.tweet.body }}</p>
 
             <app-tweet-media :images="images" :video="video" />
         </div>

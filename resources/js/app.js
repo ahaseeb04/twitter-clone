@@ -40,6 +40,7 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
+import conversation from './store/conversation';
 import likes from './store/likes';
 import notifications from './store/notifications';
 import retweets from './store/retweets';
@@ -47,6 +48,7 @@ import timeline from './store/timeline';
 
 const store = new Vuex.Store({
     modules: {
+        conversation,
         likes,
         notifications,
         retweets,

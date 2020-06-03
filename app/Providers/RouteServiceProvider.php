@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Tweet;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -30,7 +31,13 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Route::bind('tweet', function ($value) {
+            return Tweet::where('uuid', $value)->orWhere(function ($query) use ($value) {
+                if (is_numeric($value)) {
+                    $query->where('id', $value);
+                }
+            })->firstOrFail();
+        });
 
         parent::boot();
     }
