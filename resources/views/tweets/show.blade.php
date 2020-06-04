@@ -9,7 +9,7 @@
         </div>
 
         <div class="w-full md:w-8/12 border border-gray-800 border-t-0 border-b-0">
-            <app-conversation uuid="{{ $tweet->uuid }}" />
+            <app-conversation id="{{ $tweet->id }}" uuid="{{ $tweet->uuid }}" />
         </div>
     </div>
 @endsection

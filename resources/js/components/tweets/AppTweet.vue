@@ -1,10 +1,10 @@
 <template>
-    <div class="w-full inline-block p-4 cursor-pointer transition-colors ease-in duration-75 hover:bg-gray-800">
+    <a :href="`/${tweet.user.username}/status/${tweet.uuid}`" class="w-full inline-block p-4 cursor-pointer transition-colors ease-in duration-75 hover:bg-gray-800">
         <component 
             :is="`app-tweet-variant-${tweet.type}`"
             :tweet="tweet"
         />
-    </div>
+    </a>
 </template>
 
 <script>

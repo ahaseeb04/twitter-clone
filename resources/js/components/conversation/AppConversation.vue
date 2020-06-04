@@ -1,16 +1,24 @@
 <template>
-    <div>
-        <div>
-            Lorem ipsum dolor sit amet.
-        </div>
-        <div class="border border-gray-800 border-l-0 border-r-0">
+    <div class="divide-y divide-gray-800">
+        <div class="divide-y divide-gray-800">
             <app-tweet
-                v-if="tweetByUuid(uuid)"
-                :tweet="tweetByUuid(uuid)"
+                v-for="parent in parents(id)"
+                :tweet="parent"
+                :key="parent.id"
             />
         </div>
         <div>
-            Lorem, ipsum.
+            <app-tweet
+                v-if="tweet(id)"
+                :tweet="tweet(id)"
+            />
+        </div>
+        <div>
+            <app-tweet
+                v-for="reply in replies(id)"
+                :tweet="reply"
+                :key="reply.id"
+            />
         </div>
     </div>
 </template>
@@ -20,6 +28,11 @@
 
     export default {
         props: {
+            id: {
+                required: true,
+                type: String
+            },
+
             uuid: {
                 required: true,
                 type: String
@@ -28,7 +41,9 @@
 
         computed: {
             ...mapGetters({
-                tweetByUuid: 'conversation/tweetByUuid'
+                tweet: 'conversation/tweet',
+                parents: 'conversation/parents',
+                replies: 'conversation/replies',
             })
         },
 
@@ -40,6 +55,7 @@
 
         mounted () {
             this.getTweets(`/api/tweets/${this.uuid}`)
+            this.getTweets(`/api/tweets/${this.uuid}/replies`)
         }
     }
 </script>
