@@ -39,9 +39,7 @@
                         <app-tweet-compose-media-button 
                             @selected="handleMediaSelected"
                             id="media-compose-reply"
-                            :class="{
-                                'opacity-50 pointer-events-none select-none': media.images.length === 4 || media.video
-                            }"
+                            :class="disableComposeMediaButtonClasses"
                         />
                     </li>
                 </ul>
@@ -55,7 +53,7 @@
 
                     <app-tweet-compose-button 
                         text="Reply"
-                        :disabledButtonClasses="disabledButtonClasses"
+                        :class="disableComposeButtonClasses"
                     />
                 </div>
             </div>

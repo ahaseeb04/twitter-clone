@@ -19,7 +19,7 @@ export default {
     },
 
     computed: {
-        disableSubmitButton () {
+        disableComposeButton () {
             // The button should be disabled if the form body is empty
             // or if it exceeds the maximum limit, but if the user selects
             // an image or a video, then we want to enable it.
@@ -36,9 +36,19 @@ export default {
             }
         },
 
-        disabledButtonClasses () {
+        disableComposeMediaButton () {
+            return this.fourImagesExist || this.videoExists
+        },
+
+        disableComposeButtonClasses () {
             return {
                 'opacity-50 pointer-events-none select-none': this.disableSubmitButton
+            }
+        },
+
+        disableComposeMediaButtonClasses () {
+            return {
+                'opacity-50 pointer-events-none select-none': this.disableComposeMediaButton
             }
         },
 
@@ -52,6 +62,14 @@ export default {
 
         userHasSelectedMedia () {
             return this.media.images.length || this.media.video
+        },
+
+        fourImagesExist () {
+            return this.media.images.length === 4
+        },
+
+        videoExists () {
+            return this.media.video
         }
     },
 

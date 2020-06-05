@@ -27,7 +27,7 @@
 
                     <app-tweet-compose-button 
                         text="Retweet"
-                        :disabledButtonClasses="disabledButtonClasses"
+                        :class="disableComposeButtonClasses"
                     />
                 </div>
             </div>
