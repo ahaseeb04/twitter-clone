@@ -53,15 +53,10 @@
                         />
                     </div>
 
-                    <button
-                        type="submit" 
-                        class="px-4 py-3 font-semibold leading-none text-center rounded-full bg-blue-500 text-white transition-colors ease-in duration-75 hover:bg-blue-600 focus:outline-none"
-                        :class="{
-                            'opacity-50 pointer-events-none select-none': disableSubmitButton
-                        }"
-                    >
-                        Tweet
-                    </button>
+                    <app-tweet-compose-button 
+                        text="Tweet"
+                        :disabledButtonClasses="disabledButtonClasses"
+                    />
                 </div>
             </div>
         </div>
@@ -73,14 +68,14 @@
     import compose from '../../mixins/compose'
 
     export default {
-        mixins: [
-            compose
-        ],
-
         methods: {
             async post () {
                 await axios.post('/api/tweets', this.form)
             }
-        }
+        },
+
+        mixins: [
+            compose
+        ]
     }
 </script>

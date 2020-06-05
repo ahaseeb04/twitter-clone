@@ -1,12 +1,7 @@
 <template>
     <div>
         <template v-if="images.length">
-            <div 
-                class="grid gap-2 mt-3"
-                :class="{
-                    'grid-cols-2': images.length > 1
-                }"
-            >
+            <div class="mt-3 grid gap-2" :class="computeGridColumns">
                 <div 
                     class="relative pb-2/3 rounded-lg overflow-hidden"
                     v-for="(image, index) in images"
@@ -26,17 +21,11 @@
 </template>
 
 <script>
-    export default {
-        props: {
-            images: {
-                required: false,
-                type: Array
-            },
+    import media from '../../mixins/media'
 
-            video: {
-                required: false,
-                type: Object
-            }
-        }
+    export default {
+        mixins: [
+            media
+        ]
     }
 </script>

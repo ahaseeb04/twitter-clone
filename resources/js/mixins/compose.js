@@ -36,6 +36,12 @@ export default {
             }
         },
 
+        disabledButtonClasses () {
+            return {
+                'opacity-50 pointer-events-none select-none': this.disableSubmitButton
+            }
+        },
+
         formBodyIsEmpty () {
             return this.form.body.length === 0
         },
