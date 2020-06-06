@@ -21,7 +21,7 @@
             },
 
             entities () {
-                return this.tweet.entities.data.sort((a, b) => b.start - a.start)
+                return this.tweet.entities.data.slice().sort((a, b) => b.start - a.start)
             }
         },
 

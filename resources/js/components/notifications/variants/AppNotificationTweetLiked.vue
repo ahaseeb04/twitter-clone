@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-grow p-4">
+    <div class="w-full p-4">
         <app-user-avatar :avatar="notification.data.user.avatar" sm />
 
         <div class="mt-3 flex space-x-1">
@@ -11,8 +11,8 @@
             <span>liked your tweet</span>
         </div>
 
-        <div class="w-full">
-            <p class="whitespace-pre-wrap text-cool-gray-400">{{ notification.data.tweet.body }}</p>
+        <div class="min-w-0 w-full">
+            <app-notification-body :notification="notification" />
 
             <app-tweet-media :images="images" :video="video" />
         </div>
