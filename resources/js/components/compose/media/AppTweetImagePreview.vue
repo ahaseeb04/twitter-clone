@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-5 grid gap-2" :class="computeGridColumns">
+    <div class="mb-4 grid gap-2" :class="computeGridColumns">
         <div 
             class="relative pb-2/3 rounded-lg overflow-hidden"
             v-for="(image, index) in images"

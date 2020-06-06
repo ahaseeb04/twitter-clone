@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-5 relative">
+    <div class="mb-4 relative">
         <video :src="generateVideoPreview(video)" class="rounded-lg focus:outline-none" preload controls></video>
     
         <app-tweet-compose-media-remove-button 
