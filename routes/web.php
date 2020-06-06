@@ -14,4 +14,8 @@ Route::group(['prefix' => '/notifications', 'namespace' => 'Notifications'], fun
     Route::get('/', 'NotificationController@index');
 });
 
-Route::get('/{user}/status/{tweet}', 'Tweets\TweetController@show');
+Route::group(['prefix' => '/{user}'], function () {
+    Route::group(['namespace' => 'Tweets'], function () {
+        Route::get('/status/{tweet}', 'TweetController@show');
+    });
+});
