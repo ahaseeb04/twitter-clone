@@ -8,6 +8,7 @@ use App\Support\Tweets\TweetTypes;
 use App\Http\Controllers\Controller;
 use App\Events\Tweets\TweetWasCreated;
 use App\Events\Tweets\TweetWasDeleted;
+use App\Notifications\Tweets\TweetRetweeted;
 use App\Events\Tweets\TweetRetweetsWereUpdated;
 
 class TweetRetweetController extends Controller
@@ -33,6 +34,10 @@ class TweetRetweetController extends Controller
             'original_tweet_id' => $tweet->id,
             'type' => TweetTypes::RETWEET
         ]);
+
+        if ($request->user()->id !== $tweet->user_id) {
+            $tweet->user->notify(new TweetRetweeted($request->user(), $tweet));
+        }
 
         broadcast(new TweetWasCreated($retweet));
         broadcast(new TweetRetweetsWereUpdated($request->user(), $tweet));
