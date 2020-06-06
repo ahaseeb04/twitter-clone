@@ -17,6 +17,10 @@ class TweetController extends Controller
      */
     public function show(User $user, Tweet $tweet)
     {
+        if ($user->id !== $tweet->user_id) {
+            abort(404);
+        }
+
         return view('tweets.show', compact('tweet'));
     }
 }
