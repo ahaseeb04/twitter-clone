@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <script>
             window.User = {
-                id: {{ optional(auth()->user())->id }},
+                id: {{ auth()->user() ? auth()->user()->id : 0 }},
                 name: '{{ optional(auth()->user())->name }}',
                 username: '{{ optional(auth()->user())->username }}',
                 avatar: '{{ optional(auth()->user())->avatar() }}'
