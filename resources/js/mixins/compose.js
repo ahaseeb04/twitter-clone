@@ -37,16 +37,16 @@ export default {
         },
 
         disableComposeMediaButton () {
-            return this.fourImagesExist || this.videoExists
+            return this.fourImagesSelected || this.videoSelected
         },
 
-        disableComposeButtonClasses () {
+        composeButtonClasses () {
             return {
-                'opacity-50 pointer-events-none select-none': this.disableSubmitButton
+                'opacity-50 pointer-events-none select-none': this.disableComposeButton
             }
         },
 
-        disableComposeMediaButtonClasses () {
+        composeMediaButtonClasses () {
             return {
                 'opacity-50 pointer-events-none select-none': this.disableComposeMediaButton
             }
@@ -64,11 +64,11 @@ export default {
             return this.media.images.length || this.media.video
         },
 
-        fourImagesExist () {
+        fourImagesSelected () {
             return this.media.images.length === 4
         },
 
-        videoExists () {
+        videoSelected () {
             return this.media.video
         }
     },

@@ -39,7 +39,7 @@
                         <app-tweet-compose-media-button 
                             @selected="handleMediaSelected"
                             id="media-compose-reply"
-                            :class="disableComposeMediaButtonClasses"
+                            :class="composeMediaButtonClasses"
                         />
                     </li>
                 </ul>
@@ -53,7 +53,7 @@
 
                     <app-tweet-compose-button 
                         text="Reply"
-                        :class="disableComposeButtonClasses"
+                        :class="composeButtonClasses"
                     />
                 </div>
             </div>

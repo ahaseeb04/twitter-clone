@@ -27,7 +27,7 @@
 
                     <app-tweet-compose-button 
                         text="Retweet"
-                        :class="disableComposeButtonClasses"
+                        :class="composeButtonClasses"
                     />
                 </div>
             </div>
@@ -41,10 +41,6 @@
     import compose from '../../mixins/compose'
 
     export default {
-        mixins: [
-            compose
-        ],
-
         props: {
             tweet: {
                 required: true,
@@ -65,6 +61,10 @@
 
                 this.$emit('success')
             }
-        }
+        },
+
+        mixins: [
+            compose
+        ]
     }
 </script>
