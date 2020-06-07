@@ -82,6 +82,24 @@ class TweetController extends Controller
      */
     public function show(Tweet $tweet)
     {
+        $tweet->load([
+            'user',
+            'likes',
+            'replies',
+            'retweets',
+            'entities',
+            'media.baseMedia',
+            'originalTweet.user',
+            'originalTweet.likes',
+            'originalTweet.retweets',
+            'originalTweet.media.baseMedia',
+            'parentTweet.replies',
+            'parentTweet.user',
+            'parentTweet.likes',
+            'parentTweet.retweets',
+            'parentTweet.media.baseMedia'
+        ]);
+
         return new TweetCollection(collect([$tweet])->merge($tweet->parents()));
     }
 }

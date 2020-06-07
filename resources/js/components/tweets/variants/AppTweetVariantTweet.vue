@@ -22,10 +22,9 @@
                 :user="tweet.user"
             />
 
-            <template v-if="tweet.parent_tweet">
+            <template v-if="tweet.replying_to">
                 <div class="mb-2 text-sm text-cool-gray-400">
-                    Replying to 
-                    <span class="text-blue-500">@{{ tweet.parent_tweet.user.username }}</span>
+                    Replying to <a href="#" class="text-blue-500">@{{ tweet.replying_to }}</a>
                 </div>
             </template>
 

@@ -57,6 +57,11 @@ class TweetReplyController extends Controller
      */
     public function show(Tweet $tweet)
     {
+        $tweet->load([
+            'replies.user', 
+            'replies.parentTweet.parentTweet'
+        ]);
+
         return new TweetCollection($tweet->replies);
     }
 }
