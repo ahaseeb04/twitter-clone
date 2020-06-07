@@ -12,3 +12,5 @@ mix.sass('resources/scss/app.scss', 'public/css')
    })
 
 mix.sourceMaps()
+
+mix.browserSync('localhost:8000')
