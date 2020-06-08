@@ -8,12 +8,7 @@
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <script>
-            window.User = {
-                id: {{ auth()->user() ? auth()->user()->id : 0 }},
-                name: '{{ optional(auth()->user())->name }}',
-                username: '{{ optional(auth()->user())->username }}',
-                avatar: '{{ optional(auth()->user())->avatar() }}'
-            }
+            window.User = {!! json_encode(optional(auth()->user())->only('id', 'name', 'username', 'avatar')) !!}
         </script>
     </head>
     <body class="antialiased bg-gray-900 text-gray-300">

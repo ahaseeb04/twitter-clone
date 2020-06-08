@@ -43,7 +43,7 @@ class User extends Authenticatable
      *
      * @return void
      */
-    public function avatar()
+    public function getAvatarAttribute()
     {
         return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?d=mp';
     }
