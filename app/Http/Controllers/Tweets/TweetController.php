@@ -15,7 +15,7 @@ class TweetController extends Controller
      * @param Tweet $tweet
      * @return void
      */
-    public function show(User $user, Tweet $tweet)
+    public function __invoke(User $user, Tweet $tweet)
     {
         if ($user->id !== $tweet->user_id) {
             abort(404);
