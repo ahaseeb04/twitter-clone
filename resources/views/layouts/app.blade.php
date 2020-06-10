@@ -11,7 +11,7 @@
             window.User = {!! json_encode(optional(auth()->user())->only('id', 'name', 'username', 'avatar')) !!}
         </script>
     </head>
-    <body class="antialiased bg-gray-900 text-gray-300">
+    <body class="antialiased overflow-y-scroll bg-gray-900 text-gray-300">
         <div id="app">
             <div class="max-w-4xl mx-auto">
                 @yield('content')

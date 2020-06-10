@@ -8,8 +8,8 @@
         border-radius: 100%;
         border-right: 2px solid transparent;
         border-top: 2px solid #3f83f8;
-        height: 40px;
-        width: 40px;
+        height: 30px;
+        width: 30px;
     }
 
     @keyframes spinner {

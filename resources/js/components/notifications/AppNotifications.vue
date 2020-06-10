@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full">
+    <div class="flex flex-col min-h-screen h-full">
         <template v-if="notifications.length">
             <div class="divide-y divide-gray-800">
                 <app-notification 
@@ -9,15 +9,11 @@
                 />
             </div>
 
-            <template v-if="notifications.length">
-                <div
-                    v-observe-visibility="{
-                        callback: handleScrolledToBottomOfNotifications
-                    }"
-                >
-                    <!--  -->
-                </div>
-            </template>
+            <div
+                v-observe-visibility="{
+                    callback: handleScrolledToBottomOfNotifications
+                }"
+            ></div>
         </template>
         <template v-else>
             <div class="h-full flex items-center justify-center">
