@@ -1,5 +1,7 @@
 <template>
     <div class="flex flex-col min-h-screen h-full">
+        <app-header text="Notifications" />
+
         <template v-if="notifications.length">
             <div class="divide-y divide-gray-800">
                 <app-notification 
