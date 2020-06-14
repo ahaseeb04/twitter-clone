@@ -1,7 +1,5 @@
 <template>
     <div class="flex flex-col min-h-screen h-full">
-        <app-header text="Latest tweets" />
-
         <div class="p-4 border-b-8" style="border-color: #212a39">
             <app-tweet-compose />
         </div>
