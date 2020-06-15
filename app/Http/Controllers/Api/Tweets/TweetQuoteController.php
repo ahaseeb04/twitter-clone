@@ -26,7 +26,7 @@ class TweetQuoteController extends Controller
      * @param Request $request
      * @return void
      */
-    public function store(Tweet $tweet, Request $request)
+    public function __invoke(Tweet $tweet, Request $request)
     {
         $this->validateFormData($request);
 

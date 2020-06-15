@@ -18,7 +18,7 @@ Route::group(['prefix' => '/tweets', 'namespace' => 'Tweets'], function () {
         Route::post('/retweets', 'TweetRetweetController@store');
         Route::delete('/retweets', 'TweetRetweetController@destroy');
 
-        Route::post('/quotes', 'TweetQuoteController@store');
+        Route::post('/quotes', 'TweetQuoteController');
 
         Route::post('/likes', 'TweetLikeController@store');
         Route::delete('/likes', 'TweetLikeController@destroy');
