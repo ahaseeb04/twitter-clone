@@ -24,7 +24,7 @@ class MediaController extends Controller
      * @param MediaStoreRequest $request
      * @return void
      */
-    public function store(MediaStoreRequest $request)
+    public function __invoke(MediaStoreRequest $request)
     {
         $result = collect($request->media)->map(function ($media) {
             return $this->addMedia($media);

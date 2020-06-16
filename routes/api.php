@@ -26,8 +26,8 @@ Route::group(['prefix' => '/tweets', 'namespace' => 'Tweets'], function () {
 });
 
 Route::group(['prefix' => '/media', 'namespace' => 'Media'], function () {
-    Route::post('/', 'MediaController@store');
-    
+    Route::post('/', 'MediaController');
+
     Route::get('/types', 'MediaTypesController');
 });
 
