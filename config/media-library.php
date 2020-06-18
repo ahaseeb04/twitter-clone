@@ -36,11 +36,11 @@ return [
          */
         'extra_headers' => [
             'CacheControl' => 'max-age=604800',
+            'ACL' => 'public-read',
         ],
     ],
 
     'responsive_images' => [
-
         /*
          * This class is responsible for calculating the target widths of the responsive
          * images. By default we optimize for filesize and create variations that each are 20%

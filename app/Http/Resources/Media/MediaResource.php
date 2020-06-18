@@ -15,7 +15,7 @@ class MediaResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'url' => $this->baseMedia->getPresignedUrl(),
+            'url' => $this->baseMedia->getFullUrl(),
             'type' => $this->baseMedia->type(),
         ];
     }
