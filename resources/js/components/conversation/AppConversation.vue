@@ -54,8 +54,8 @@
         },
 
         mounted () {
-            this.getTweets(`/api/tweets/${this.uuid}`)
-            this.getTweets(`/api/tweets/${this.uuid}/replies`)
+            this.getTweets(`/api/tweets/${this.id}`)
+            this.getTweets(`/api/tweets/${this.id}/replies`)
         }
     }
 </script>
