@@ -7,10 +7,8 @@ use App\Models\Tweet;
 use Illuminate\Bus\Queueable;
 use App\Http\Resources\UserResource;
 use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Http\Resources\Tweets\TweetResource;
 use App\Notifications\DatabaseNotificationChannel;
-use Illuminate\Notifications\Messages\MailMessage;
 
 class TweetMentionedIn extends Notification
 {
