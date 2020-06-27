@@ -31,7 +31,7 @@ class EntityExtractor
      */
     public function getHashtagEntities()
     {
-        return $this->buildEntityCollection(
+        return $this->buildEntityArray(
             $this->match(self::HASHTAG_REGEX), EntityTypes::HASHTAG
         );
     }
@@ -43,7 +43,7 @@ class EntityExtractor
      */
     public function getMentionEntities()
     {
-        return $this->buildEntityCollection(
+        return $this->buildEntityArray(
             $this->match(self::MENTION_REGEX), EntityTypes::MENTION
         );
     }
@@ -65,7 +65,7 @@ class EntityExtractor
      * @param [type] $type
      * @return void
      */
-    protected function buildEntityCollection($entities, $type)
+    protected function buildEntityArray($entities, $type)
     {
         return array_map(function ($entity, $index) use ($entities, $type) {
             return [
