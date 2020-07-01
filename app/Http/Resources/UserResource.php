@@ -18,7 +18,7 @@ class UserResource extends JsonResource
             'name' => $this->name,
             'username' => $this->username,
             'avatar' => $this->avatar,
-            'verified' => (bool) $this->verified,
+            'verified' => $this->verified,
         ];
     }
 }
