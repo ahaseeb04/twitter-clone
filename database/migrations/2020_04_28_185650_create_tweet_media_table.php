@@ -16,7 +16,7 @@ class CreateTweetMediaTable extends Migration
         Schema::create('tweet_media', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tweet_id')->nullable()->constrained()->onDelete('cascade');
-            $table->foreignId('media_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('media_id')->nullable()->constrained('media')->onDelete('cascade');
             $table->timestamps();
         });
     }
