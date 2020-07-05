@@ -7,9 +7,7 @@
         <title>{{ config('app.name') }}</title>
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <script>
-            window.User = {!! json_encode(optional(auth()->user())->only('id', 'name', 'username', 'avatar')) !!}
-        </script>
+        <script>window.User = {!! json_encode(optional(auth()->user())->only('id', 'name', 'username', 'avatar')) !!}</script>
     </head>
     <body class="antialiased overflow-y-scroll bg-gray-900 text-gray-300">
         <div id="app">
