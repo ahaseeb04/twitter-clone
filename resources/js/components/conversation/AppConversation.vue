@@ -27,11 +27,6 @@
             id: {
                 required: true,
                 type: String
-            },
-
-            uuid: {
-                required: true,
-                type: String
             }
         },
 
