@@ -165,7 +165,6 @@ return [
         /*
          * Package Service Providers...
          */
-        App\Providers\TelescopeServiceProvider::class,
 
         /*
          * Application Service Providers...
