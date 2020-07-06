@@ -45,7 +45,7 @@
 
         computed: {
             percentage () {
-                return (this.body.length * 100) / this.limit 
+                return (this.body.trim().length * 100) / this.limit 
             },
 
             displayPercentage () {

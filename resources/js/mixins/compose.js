@@ -53,11 +53,11 @@ export default {
         },
 
         formBodyIsEmpty () {
-            return this.form.body.length === 0
+            return this.form.body.trim().length === 0
         },
 
         formBodyExceedsTheLimit () {
-            return this.form.body.length > 280
+            return this.form.body.trim().length > 280
         },
 
         userHasSelectedMedia () {
@@ -124,6 +124,12 @@ export default {
         },
 
         handleMediaSelected (files) {
+            if (files.length > 4) {
+                // Show an error to the user.
+
+                return
+            }
+
             Array.from(files).slice(0, 4).forEach((file) => {
                 if (this.mediaTypes.image.includes(file.type)) {
                     this.media.images.push(file)
