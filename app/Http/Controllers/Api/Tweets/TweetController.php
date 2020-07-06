@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Support\Tweets\TweetTypes;
 use App\Http\Controllers\Controller;
 use App\Events\Tweets\TweetWasCreated;
+use App\Http\Requests\Tweet\TweetStoreRequest;
 use App\Http\Resources\Tweets\TweetCollection;
 use App\Notifications\Tweets\TweetMentionedIn;
 
@@ -50,13 +51,11 @@ class TweetController extends Controller
     /**
      * Undocumented function
      *
-     * @param Request $request
+     * @param TweetStoreRequest $request
      * @return void
      */
-    public function store(Request $request)
+    public function store(TweetStoreRequest $request)
     {
-        $this->validateFormData($request);
-
         $tweet = $request->user()->tweets()->create(array_merge($request->only('body'), [
             'type' => TweetTypes::TWEET
         ]));

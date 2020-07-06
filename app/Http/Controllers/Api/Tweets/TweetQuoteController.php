@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Api\Tweets;
 
 use App\Models\Tweet;
-use Illuminate\Http\Request;
 use App\Support\Tweets\TweetTypes;
 use App\Http\Controllers\Controller;
 use App\Events\Tweets\TweetWasCreated;
+use App\Http\Requests\Tweet\TweetStoreRequest;
 use App\Events\Tweets\TweetRetweetsWereUpdated;
 
 class TweetQuoteController extends Controller
@@ -23,13 +23,11 @@ class TweetQuoteController extends Controller
      * Undocumented function
      *
      * @param Tweet $tweet
-     * @param Request $request
+     * @param TweetStoreRequest $request
      * @return void
      */
-    public function __invoke(Tweet $tweet, Request $request)
+    public function __invoke(Tweet $tweet, TweetStoreRequest $request)
     {
-        $this->validateFormData($request);
-
         $retweet = $request->user()->tweets()->create([
             'original_tweet_id' => $tweet->id,
             'body' => $request->body,

@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Api\Tweets;
 
 use App\Models\Tweet;
 use App\Models\TweetMedia;
-use Illuminate\Http\Request;
 use App\Support\Tweets\TweetTypes;
 use App\Http\Controllers\Controller;
 use App\Notifications\Tweets\TweetRepliedTo;
 use App\Events\Tweets\TweetRepliesWereUpdated;
+use App\Http\Requests\Tweet\TweetStoreRequest;
 use App\Http\Resources\Tweets\TweetCollection;
 
 class TweetReplyController extends Controller
@@ -26,13 +26,11 @@ class TweetReplyController extends Controller
      * Undocumented function
      *
      * @param Tweet $tweet
-     * @param Request $request
+     * @param TweetStoreRequest $request
      * @return void
      */
-    public function store(Tweet $tweet, Request $request)
+    public function store(Tweet $tweet, TweetStoreRequest $request)
     {
-        $this->validateFormData($request);
-
         $reply = $request->user()->tweets()->create(array_merge($request->only('body'), [
             'parent_id' => $tweet->id,
             'type' => TweetTypes::TWEET
