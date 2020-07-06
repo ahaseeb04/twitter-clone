@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Tweets;
 
 use App\Models\User;
 use App\Models\Tweet;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class TweetController extends Controller
@@ -12,6 +11,7 @@ class TweetController extends Controller
     /**
      * Undocumented function
      *
+     * @param User $user
      * @param Tweet $tweet
      * @return void
      */

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api\Media;
 
-use Illuminate\Http\Request;
 use App\Support\Media\MediaTypes;
 use App\Http\Controllers\Controller;
 

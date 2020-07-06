@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api\Media;
 
 use App\Models\TweetMedia;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Media\MediaStoreRequest;
 use App\Http\Resources\Media\TweetMediaCollection;
@@ -15,7 +14,7 @@ class MediaController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth:sanctum']);
+        $this->middleware('auth:sanctum');
     }
 
     /**
