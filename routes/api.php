@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => '/timeline', 'namespace' => 'Timeline'], function () {
+Route::prefix('timeline')->namespace('timeline')->group(function () {
     Route::get('/', 'TimelineController');
 });
 
