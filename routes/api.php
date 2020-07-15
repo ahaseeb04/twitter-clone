@@ -6,12 +6,12 @@ Route::prefix('timeline')->namespace('timeline')->group(function () {
     Route::get('/', 'TimelineController');
 });
 
-Route::group(['prefix' => '/tweets', 'namespace' => 'Tweets'], function () {
+Route::prefix('tweets')->namespace('tweets')->group(function () {
     Route::get('/', 'TweetController@index');
     Route::post('/', 'TweetController@store');
     Route::get('/{tweet}', 'TweetController@show');
 
-    Route::group(['prefix' => '/{tweet}'], function () {
+    Route::prefix('{tweet}')->group(function () {
         Route::post('/replies', 'TweetReplyController@store');
         Route::get('/replies', 'TweetReplyController@show');
 
@@ -25,7 +25,7 @@ Route::group(['prefix' => '/tweets', 'namespace' => 'Tweets'], function () {
     });
 });
 
-Route::group(['prefix' => '/media', 'namespace' => 'Media'], function () {
+Route::prefix('media')->namespace('media')->group(function () {
     Route::post('/', 'MediaController');
 
     Route::get('/types', 'MediaTypesController');
