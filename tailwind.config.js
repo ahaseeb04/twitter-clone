@@ -2,27 +2,51 @@ const plugin = require('tailwindcss/plugin')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+    purge: {
+        mode: 'all',
+
+        content: [
+            './resources/js/**/**/**/*.js',
+            './resources/js/**/**/**/*.vue',
+            './resources/views/**/**/**/*.php',
+        ],
+
+        options: {
+            extractors: [
+                {
+                    extractor: (content) => {
+                        const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
+
+                        const innerMatches = content.match(/[^<>"'`\s.(){}[\]#=%]*[^<>"'`\s.(){}[\]#=%:]/g) || []
+
+                        return broadMatches.concat(innerMatches)
+                    }
+                }
+            ]
+        }
+    },
+
     theme: {
         extend: {
             borderColor: {
-                default: defaultTheme.colors.gray[800]
+                default: defaultTheme.colors.gray[800],
             },
 
             boxShadow: {
-                light: '0 0 15px 0 rgba(255, 255, 255, .1)'
+                light: '0 0 15px 0 rgba(255, 255, 255, .1)',
             },
 
             fontFamily: {
-                sans: ['Inter var', ...defaultTheme.fontFamily.sans]
+                sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             },
 
             maxWidth: {
                 '36': '9rem',
-                '40': '10rem'
+                '40': '10rem',
             },
 
             spacing: {
-                '3px': '3px'
+                '3px': '3px',
             }
         },
     },
