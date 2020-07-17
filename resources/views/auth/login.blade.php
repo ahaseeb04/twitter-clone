@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.temp')
 
 @section('content')
     <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -41,6 +41,8 @@
                     </button>
                 </div>
             </form>
+
+            <a href="{{ route('register') }}" class="block my-10 text-sm text-center font-medium text-blue-500">Register</a>
         </div>
     </div>
 @endsection
