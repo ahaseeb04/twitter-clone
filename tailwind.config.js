@@ -2,29 +2,11 @@ const plugin = require('tailwindcss/plugin')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    purge: {
-        mode: 'all',
-
-        content: [
-            './resources/js/**/**/**/*.js',
-            './resources/js/**/**/**/*.vue',
-            './resources/views/**/**/**/*.php',
-        ],
-
-        options: {
-            extractors: [
-                {
-                    extractor: (content) => {
-                        const broadMatches = content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []
-
-                        const innerMatches = content.match(/[^<>"'`\s.(){}[\]#=%]*[^<>"'`\s.(){}[\]#=%:]/g) || []
-
-                        return broadMatches.concat(innerMatches)
-                    }
-                }
-            ]
-        }
-    },
+    purge: [
+        './resources/js/**/**/**/*.js',
+        './resources/js/**/**/**/*.vue',
+        './resources/views/**/**/**/*.php',
+    ],
 
     theme: {
         extend: {
