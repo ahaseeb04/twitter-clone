@@ -33,7 +33,7 @@ class UsernameRule implements Rule
     public function passes($attribute, $value)
     {
         if (!preg_match('/^[A-Za-z0-9_]+$/', $value)) {
-            return $this->fail('The username can only contain letters, numbers and underscores.');
+            return $this->fail('The username can only contain letters, numbers, and underscores.');
         }
 
         foreach (app()->router->getRoutes() as $route) {
@@ -46,8 +46,8 @@ class UsernameRule implements Rule
             return $this->fail('This username is unavailable. Please try a different one.');
         }
 
-        foreach (app()->files->glob(public_path() . '/*') as $path) {
-            if (strtolower(basename($path)) === $value) {
+        foreach (app()->files->glob(public_path() . '/*') as $file) {
+            if (strtolower(basename($file)) === $value) {
                 return $this->fail('This username is unavailable. Please try a different one.');
             }
         }
