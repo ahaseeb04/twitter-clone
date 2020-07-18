@@ -36,18 +36,18 @@ class UsernameRule implements Rule
             return $this->fail('The username can only contain letters, numbers, and underscores.');
         }
 
-        foreach (app()->router->getRoutes() as $route) {
-            if (strtolower($route->uri) === $value) {
-                return $this->fail('This username is unavailable. Please try a different one.');
-            }
-        }
-
         if (in_array($value, config('auth.reserved_usernames'))) {
             return $this->fail('This username is unavailable. Please try a different one.');
         }
 
+        foreach (app()->router->getRoutes() as $route) {
+            if (strtolower($route->uri) === strtolower($value)) {
+                return $this->fail('This username is unavailable. Please try a different one.');
+            }
+        }
+
         foreach (app()->files->glob(public_path() . '/*') as $file) {
-            if (strtolower(basename($file)) === $value) {
+            if (strtolower(basename($file)) === strtolower($value)) {
                 return $this->fail('This username is unavailable. Please try a different one.');
             }
         }
