@@ -1,6 +1,8 @@
-@extends('layouts.app')
+@extends ('layouts.app')
 
-@section('content')
+@section('title')Notifications - @endsection
+
+@section ('content')
     <div class="flex justify-center min-h-screen">
         <div class="md:w-4/12 hidden md:block">
             <div class="p-4">
