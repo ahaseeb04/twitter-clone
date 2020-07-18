@@ -7,7 +7,7 @@
         <div class="relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <div class="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-                    <div class="lg:w-0 lg:flex-1">
+                    <div>
                         <a href="#" class="flex focus:outline-none">
                             <svg 
                                 class="h-12 text-blue-500 fill-current" 

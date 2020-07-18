@@ -1,6 +1,6 @@
 @extends ('layouts.app')
 
-@section('title'){{ $tweet->user->name }}: '{{ $tweet->body }}' - @endsection
+@section('title'){{ $tweet->user->name }}: '{{ $tweet->body ? $tweet->body : $tweet->media->first()->baseMedia->getFullUrl() }}' - @endsection
 
 @section ('content')
     <div class="flex justify-center min-h-screen">

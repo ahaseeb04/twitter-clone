@@ -3,7 +3,7 @@
     <head>
         @include ('layouts.partials._head')
     </head>
-    <body class="antialiased overflow-y-scroll bg-gray-900 text-gray-300">
+    <body class="antialiased bg-gray-900 text-gray-300">
         <div id="app">
             <div class="max-w-4xl mx-auto">
                 @yield('content')
