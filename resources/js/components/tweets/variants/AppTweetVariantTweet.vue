@@ -18,9 +18,17 @@
         </template>
 
         <div class="min-w-0 w-full">
-            <app-tweet-username 
-                :user="tweet.user"
-            />
+            <div class="flex items-center space-x-1">
+                <app-tweet-username 
+                    :user="tweet.user"
+                />
+
+                <span class="block text-xs text-cool-gray-500">&bull;</span>
+
+                <app-tweet-time-ago 
+                    :tweet="tweet" 
+                />
+            </div>
 
             <app-tweet-replying-to
                 v-if="tweet.replying_to"

@@ -17,12 +17,12 @@ export default {
             return id => state.tweets.filter(t => {
                 return t.id != id && !t.parent_ids.includes(parseInt(id))
             })
-                .sort((a, b) => a.created_at - b.created_at)
+                .sort((a, b) => a.created_at_timestamp - b.created_at_timestamp)
         },
 
         replies (state) {
             return id => state.tweets.filter(t => t.parent_id == id)
-                .sort((a, b) => a.created_at - b.created_at)
+                .sort((a, b) => a.created_at_timestamp - b.created_at_timestamp)
         }
     },
 

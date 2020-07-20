@@ -1,7 +1,7 @@
 export default {
     tweets (state) {
         return state.tweets
-            .sort((a, b) => b.created_at - a.created_at)
+            .sort((a, b) => b.created_at_timestamp - a.created_at_timestamp)
     },
 
     tweet (state) {
