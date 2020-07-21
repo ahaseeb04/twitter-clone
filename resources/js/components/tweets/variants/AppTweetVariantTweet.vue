@@ -25,8 +25,8 @@
 
                 <span class="block text-xs text-cool-gray-500">&bull;</span>
 
-                <app-tweet-time-ago 
-                    :tweet="tweet" 
+                <app-time-ago 
+                    :timestamp="tweet.created_at" 
                 />
             </div>
 
