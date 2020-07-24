@@ -41,7 +41,7 @@ class TweetLikesWereUpdated implements ShouldBroadcast
     }
 
     /**
-     * The name of this event.
+     * Get the name of this event.
      *
      * @return string
      */

@@ -9,11 +9,12 @@ Route::prefix('timeline')->namespace('Timeline')->group(function () {
 Route::prefix('tweets')->namespace('Tweets')->group(function () {
     Route::get('/', 'TweetController@index');
     Route::post('/', 'TweetController@store');
+    
     Route::get('/{tweet}', 'TweetController@show');
 
     Route::prefix('{tweet}')->group(function () {
-        Route::post('/replies', 'TweetReplyController@store');
         Route::get('/replies', 'TweetReplyController@show');
+        Route::post('/replies', 'TweetReplyController@store');
 
         Route::post('/retweets', 'TweetRetweetController@store');
         Route::delete('/retweets', 'TweetRetweetController@destroy');

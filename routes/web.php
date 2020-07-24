@@ -10,12 +10,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => '/notifications', 'namespace' => 'Notifications'], function () {
+Route::prefix('notifications')->namespace('Notifications')->group(function () {
     Route::get('/', 'NotificationController@index');
 });
 
-Route::group(['prefix' => '/{user}'], function () {
-    Route::group(['namespace' => 'Tweets'], function () {
+Route::prefix('{user}')->group(function () {
+    Route::namespace('Tweets')->group(function () {
         Route::get('/status/{tweet}', 'TweetController');
     });
 });
