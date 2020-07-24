@@ -15,16 +15,16 @@ class TweetWasCreated implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Undocumented variable
+     * The event tweet.
      *
-     * @var [type]
+     * @var \App\Models\Tweet
      */
     protected $tweet;
 
     /**
      * Create a new event instance.
      *
-     * @param Tweet $tweet
+     * @param \App\Models\Tweet $tweet
      */
     public function __construct(Tweet $tweet)
     {
@@ -32,9 +32,9 @@ class TweetWasCreated implements ShouldBroadcast
     }
 
     /**
-     * Undocumented function
+     * The event name.
      *
-     * @return void
+     * @return string
      */
     public function broadcastAs()
     {
@@ -42,9 +42,9 @@ class TweetWasCreated implements ShouldBroadcast
     }
 
     /**
-     * Undocumented function
+     * Get the data to broadcast.
      *
-     * @return void
+     * @return \App\Http\Resources\Tweets\TweetResource
      */
     public function broadcastWith()
     {

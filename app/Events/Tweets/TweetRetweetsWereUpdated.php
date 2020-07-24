@@ -15,24 +15,24 @@ class TweetRetweetsWereUpdated implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * Undocumented variable
+     * The event user.
      *
-     * @var [type]
+     * @var \App\Models\User
      */
     protected $user;
 
     /**
-     * Undocumented variable
+     * The event tweet.
      *
-     * @var [type]
+     * @var \App\Models\Tweet
      */
     protected $tweet;
 
     /**
      * Create a new event instance.
      *
-     * @param User $user
-     * @param Tweet $tweet
+     * @param \App\Models\User $user
+     * @param \App\Models\Tweet $tweet
      */
     public function __construct(User $user, Tweet $tweet)
     {
@@ -41,9 +41,9 @@ class TweetRetweetsWereUpdated implements ShouldBroadcast
     }
 
     /**
-     * Undocumented function
+     * The event name.
      *
-     * @return void
+     * @return string
      */
     public function broadcastAs()
     {
@@ -51,9 +51,9 @@ class TweetRetweetsWereUpdated implements ShouldBroadcast
     }
 
     /**
-     * Undocumented function
+     * Get the data to broadcast.
      *
-     * @return void
+     * @return array
      */
     public function broadcastWith()
     {
