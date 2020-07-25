@@ -7,7 +7,7 @@ use Illuminate\Contracts\Validation\Rule;
 class UsernameRule implements Rule
 {
     /**
-     * Undocumented variable
+     * The error message.
      *
      * @var string
      */
@@ -66,10 +66,10 @@ class UsernameRule implements Rule
     }
 
     /**
-     * Undocumented function
+     * Fail the validation rule.
      *
-     * @param [type] $message
-     * @return void
+     * @param string $message
+     * @return bool
      */
     protected function fail($message)
     {
