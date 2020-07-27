@@ -8,17 +8,17 @@ use App\Support\Tweets\Entities\EntityDatabaseCollection;
 class Entity extends Model
 {
     /**
-     * Undocumented variable
+     * The attributes that aren't mass assignable.
      *
      * @var array
      */
     protected $guarded = [];
 
     /**
-     * Undocumented function
+     * Create a new Eloquent Collection instance.
      *
      * @param array $models
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Collection
      */
     public function newCollection(array $models = [])
     {

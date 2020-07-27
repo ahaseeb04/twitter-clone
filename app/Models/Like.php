@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     /**
-     * Undocumented variable
+     * The attributes that aren't mass assignable.
      *
      * @var array
      */

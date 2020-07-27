@@ -44,7 +44,7 @@ class TweetWasCreated implements ShouldBroadcast
     /**
      * Get the data to broadcast.
      *
-     * @return \App\Http\Resources\Tweets\TweetResource
+     * @return \Illuminate\Http\Resources\Json\JsonResource|array
      */
     public function broadcastWith()
     {

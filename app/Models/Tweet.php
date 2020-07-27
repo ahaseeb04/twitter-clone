@@ -9,7 +9,7 @@ use App\Support\Tweets\Entities\EntityTypes;
 class Tweet extends Model
 {
     /**
-     * Undocumented variable
+     * The attributes that aren't mass assignable.
      *
      * @var array
      */
