@@ -1,20 +1,9 @@
 <template>
-    <div class="spinner"></div>
+    <div class="w-10 h-10 border-t-2 border-r-2 border-blue-500 rounded-full animate-spin"></div>
 </template>
 
-<style lang="scss" scoped>
-    .spinner {
-        animation: spinner .6s linear infinite;
-        border-radius: 100%;
-        border-right: 2px solid transparent;
-        border-top: 2px solid #3f83f8;
-        height: 30px;
-        width: 30px;
+<script>
+    export default {
+        // 
     }
-
-    @keyframes spinner {
-        to {
-            transform: rotate(360deg);
-        }
-    }
-</style>
+</script>
