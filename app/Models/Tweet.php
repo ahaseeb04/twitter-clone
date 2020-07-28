@@ -16,9 +16,9 @@ class Tweet extends Model
     protected $guarded = [];
     
     /**
-     * Undocumented function
+     * Scope a query to include parent tweets.
      *
-     * @param Builder $builder
+     * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
      */
     public function scopeParent(Builder $builder)
