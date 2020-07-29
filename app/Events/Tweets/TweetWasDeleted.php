@@ -3,6 +3,7 @@
 namespace App\Events\Tweets;
 
 use App\Models\Tweet;
+use App\Http\Resources\UserResource;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use App\Http\Resources\Tweets\TweetResource;
@@ -49,7 +50,8 @@ class TweetWasDeleted implements ShouldBroadcast
     public function broadcastWith()
     {
         return [
-            'id' => $this->tweet->id
+            'id' => $this->tweet->id,
+            'user' => new UserResource($this->tweet->user),
         ];
     }
 

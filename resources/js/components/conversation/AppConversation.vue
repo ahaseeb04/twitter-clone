@@ -47,6 +47,13 @@
         mounted () {
             this.getTweets(`/api/tweets/${this.id}`)
             this.getTweets(`/api/tweets/${this.id}/replies`)
+
+            Echo.channel('tweets')
+                .listen('.TweetWasDeleted', (e) => {
+                    if (e.id === parseInt(this.id) && e.user.username === User.username) {
+                        location.href = '/home'
+                    }
+                })
         }
     }
 </script>

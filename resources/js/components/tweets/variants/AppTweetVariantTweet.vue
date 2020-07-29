@@ -18,16 +18,22 @@
         </template>
 
         <div class="min-w-0 w-full">
-            <div class="flex items-center space-x-1">
-                <app-tweet-username 
-                    :user="tweet.user"
-                />
+            <div class="flex justify-between">
+                <div class="flex items-center space-x-1">
+                    <app-tweet-username 
+                        :user="tweet.user"
+                    />
 
-                <span class="block text-xs text-cool-gray-500">&bull;</span>
+                    <span class="block text-xs text-cool-gray-500">&bull;</span>
 
-                <app-time-ago 
-                    :timestamp="tweet.created_at" 
-                />
+                    <app-time-ago 
+                        :timestamp="tweet.created_at" 
+                    />
+                </div>
+
+                <div class="flex">
+                    <app-tweet-settings :tweet="tweet" />
+                </div>
             </div>
 
             <app-tweet-replying-to

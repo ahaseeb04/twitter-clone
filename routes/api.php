@@ -10,9 +10,10 @@ Route::prefix('tweets')->namespace('Tweets')->group(function () {
     Route::get('/', 'TweetController@index');
     Route::post('/', 'TweetController@store');
     
-    Route::get('/{tweet}', 'TweetController@show');
-
     Route::prefix('{tweet}')->group(function () {
+        Route::get('/', 'TweetController@show');
+        Route::delete('/', 'TweetController@destroy');
+
         Route::get('/replies', 'TweetReplyController@show');
         Route::post('/replies', 'TweetReplyController@store');
 

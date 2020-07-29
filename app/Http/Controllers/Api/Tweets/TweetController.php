@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Support\Tweets\TweetTypes;
 use App\Http\Controllers\Controller;
 use App\Events\Tweets\TweetWasCreated;
+use App\Events\Tweets\TweetWasDeleted;
 use App\Http\Requests\Tweet\TweetStoreRequest;
 use App\Http\Resources\Tweets\TweetCollection;
 use App\Notifications\Tweets\TweetMentionedIn;
@@ -15,7 +16,9 @@ use App\Notifications\Tweets\TweetMentionedIn;
 class TweetController extends Controller
 {
     /**
-     * Undocumented function
+     * Instantiate a new controller instance.
+     * 
+     * @return void
      */
     public function __construct()
     {
@@ -23,10 +26,10 @@ class TweetController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Get all tweets.
      *
-     * @param Request $request
-     * @return void
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Resources\Json\ResourceCollection
      */
     public function index(Request $request)
     {
@@ -48,9 +51,9 @@ class TweetController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Store a new tweet.
      *
-     * @param TweetStoreRequest $request
+     * @param \App\Http\Requests\Tweet\TweetStoreRequest $request
      * @return void
      */
     public function store(TweetStoreRequest $request)
@@ -73,10 +76,10 @@ class TweetController extends Controller
     }
 
     /**
-     * Undocumented function
+     * Show the given tweet.
      *
-     * @param Tweet $tweet
-     * @return void
+     * @param \App\Models\Tweet $tweet
+     * @return \Illuminate\Http\Resources\Json\ResourceCollection
      */
     public function show(Tweet $tweet)
     {
@@ -99,5 +102,20 @@ class TweetController extends Controller
         ]);
 
         return new TweetCollection(collect([$tweet])->merge($tweet->parents()));
+    }
+
+    /**
+     * Delete the given tweet.
+     *
+     * @param \App\Models\Tweet $tweet
+     * @return void
+     */
+    public function destroy(Tweet $tweet)
+    {
+        $this->authorize('delete', $tweet);
+
+        broadcast(new TweetWasDeleted($tweet));
+
+        $tweet->delete();
     }
 }

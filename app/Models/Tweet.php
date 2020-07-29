@@ -5,9 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use App\Support\Tweets\Entities\EntityTypes;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tweet extends Model
 {
+    use SoftDeletes;
+
     /**
      * The attributes that aren't mass assignable.
      *

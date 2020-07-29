@@ -5,7 +5,8 @@
         </div>
         <div 
             v-show="open"
-            class="absolute z-50 top-0 right-0 w-56 rounded-lg overflow-hidden shadow-light bg-gray-900" 
+            class="absolute z-50 w-56 rounded-lg overflow-hidden shadow-light bg-gray-900" 
+            :class="position"
         >
             <slot />
         </div>
@@ -19,6 +20,14 @@
         data () {
             return {
                 open: false
+            }
+        },
+
+        props: {
+            position: {
+                required: false,
+                type: String,
+                default: 'top-0 right-0'
             }
         },
 

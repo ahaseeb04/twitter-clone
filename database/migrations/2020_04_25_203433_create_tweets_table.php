@@ -21,6 +21,7 @@ class CreateTweetsTable extends Migration
             $table->foreignId('original_tweet_id')->nullable()->constrained('tweets')->onDelete('cascade');
             $table->text('body')->nullable();
             $table->string('type');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
