@@ -6,6 +6,11 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class EntityCollection extends ResourceCollection
 {
+    /**
+     * The resource that this resource collects.
+     *
+     * @var string
+     */
     public $collects = EntityResource::class;
 
     /**
@@ -17,7 +22,7 @@ class EntityCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => $this->collection
+            'data' => $this->collection,
         ];
     }
 }

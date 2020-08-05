@@ -7,9 +7,9 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 class TweetMediaCollection extends ResourceCollection
 {
     /**
-     * Undocumented variable
+     * The resource that this resource collects.
      *
-     * @var [type]
+     * @var string
      */
     public $collects = TweetMediaResource::class;
 
@@ -22,7 +22,7 @@ class TweetMediaCollection extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'data' => $this->collection
+            'data' => $this->collection,
         ];
     }
 }

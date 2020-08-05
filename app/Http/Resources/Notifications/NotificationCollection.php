@@ -6,6 +6,11 @@ use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class NotificationCollection extends ResourceCollection
 {
+    /**
+     * The resource that this resource collects.
+     *
+     * @var string
+     */
     public $collects = NotificationResource::class;
 
     /**

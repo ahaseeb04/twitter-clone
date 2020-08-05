@@ -19,7 +19,7 @@ class EntityResource extends JsonResource
             'body_plain' => $this->body_plain,
             'type' => $this->type,
             'start' => $this->start,
-            'end' => $this->end
+            'end' => $this->end,
         ];
     }
 }
