@@ -8,16 +8,16 @@ class EntityExtractor
     const MENTION_REGEX = '/(?=[^\w!])@(\w+)\b/';
 
     /**
-     * Undocumented variable
+     * The text to extract entities from.
      *
-     * @var [type]
+     * @var string
      */
     protected $string;
 
     /**
-     * Undocumented function
+     * Create a new entity extractor instance.
      *
-     * @param [type] $string
+     * @param string $string
      */
     public function __construct($string)
     {
@@ -25,9 +25,9 @@ class EntityExtractor
     }
 
     /**
-     * Undocumented function
+     * Get the extracted hashtags.
      *
-     * @return void
+     * @return array
      */
     public function getHashtagEntities()
     {
@@ -37,9 +37,9 @@ class EntityExtractor
     }
 
     /**
-     * Undocumented function
+     * Get the extracted mentions.
      *
-     * @return void
+     * @return array
      */
     public function getMentionEntities()
     {
@@ -49,21 +49,24 @@ class EntityExtractor
     }
 
     /**
-     * Undocumented function
+     * Get the extracted entities.
      *
-     * @return void
+     * @return array
      */
     public function getEntities()
     {
-        return array_merge($this->getHashtagEntities(), $this->getMentionEntities());
+        return array_merge(
+            $this->getHashtagEntities(), 
+            $this->getMentionEntities()
+        );
     }
     
     /**
-     * Undocumented function
+     * Build up the entity array.
      *
-     * @param [type] $entities
-     * @param [type] $type
-     * @return void
+     * @param array $entities
+     * @param string $type
+     * @return array
      */
     protected function buildEntityArray($entities, $type)
     {
@@ -79,15 +82,15 @@ class EntityExtractor
     }
 
     /**
-     * Undocumented function
+     * Match the text against the given pattern.
      *
-     * @param [type] $pattern
-     * @return void
+     * @param string $pattern
+     * @return array
      */
     protected function match($pattern)
     {
         preg_match_all($pattern, $this->string, $matches, PREG_OFFSET_CAPTURE);
-    
+        
         return $matches;
     }
 }
