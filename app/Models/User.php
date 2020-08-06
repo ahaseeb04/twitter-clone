@@ -70,7 +70,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the people that the user is following. 
+     * Get the users that the user is following. 
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
