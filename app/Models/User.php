@@ -39,9 +39,9 @@ class User extends Authenticatable
     ];
 
     /**
-     * Undocumented function
+     * Get the user's avatar.
      *
-     * @return void
+     * @return string
      */
     public function getAvatarAttribute()
     {
@@ -49,9 +49,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Undocumented function
+     * Get the route key for the model.
      *
-     * @return void
+     * @return string
      */
     public function getRouteKeyName()
     {
@@ -59,9 +59,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Undocumented function
+     * Determine if the user has liked the given tweet.
      *
-     * @param Tweet $tweet
+     * @param \App\Models\Tweet $tweet
      * @return boolean
      */
     public function hasLiked(Tweet $tweet)
@@ -70,9 +70,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Undocumented function
+     * Get the people that the user is following. 
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function following()
     {
@@ -83,9 +83,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Undocumented function
+     * Get the user's followers.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function followers()
     {
@@ -96,9 +96,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Undocumented function
+     * Get the user's tweets.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function tweets()
     {
@@ -106,9 +106,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Undocumented function
+     * Get the tweets from users that the user is following.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
      */
     public function tweetsFromFollowing()
     {
@@ -118,9 +118,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Undocumented function
+     * Get the tweets that the user has retweeted.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function retweets()
     {
@@ -129,9 +129,9 @@ class User extends Authenticatable
     }
 
     /**
-     * Undocumented function
+     * Get the tweets that the user has liked.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function likes()
     {
