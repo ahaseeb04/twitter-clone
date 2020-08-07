@@ -19,7 +19,7 @@ class Tweet extends Model
     protected $guarded = [];
     
     /**
-     * Scope a query to include parent tweets.
+     * Scope a query to pluck parent tweets.
      *
      * @param \Illuminate\Database\Eloquent\Builder $builder
      * @return void
@@ -30,9 +30,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get a collection of parent tweets.
      *
-     * @return void
+     * @return \Illuminate\Support\Collection
      */
     public function parents()
     {
@@ -48,9 +48,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the user that this tweet belongs to.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function user()
     {
@@ -58,9 +58,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the parent tweet.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function parentTweet()
     {
@@ -68,9 +68,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the original tweet.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function originalTweet()
     {
@@ -78,9 +78,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the retweeted tweet.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function retweetedTweet()
     {
@@ -88,9 +88,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the replies associated with this tweet.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function replies()
     {
@@ -98,9 +98,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the retweets associated with this tweet.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function retweets()
     {
@@ -108,9 +108,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the likes associated with this tweet.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function likes()
     {
@@ -118,9 +118,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the images and videos attached to this tweet.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function media()
     {
@@ -128,9 +128,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the entities associated with this tweet.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function entities()
     {
@@ -138,9 +138,9 @@ class Tweet extends Model
     }
 
     /**
-     * Undocumented function
+     * Get the mentions associated with this tweet.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function mentions()
     {

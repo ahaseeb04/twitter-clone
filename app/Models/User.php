@@ -49,7 +49,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the route key for the model.
+     * Get the route key name for the model.
      *
      * @return string
      */
@@ -62,7 +62,7 @@ class User extends Authenticatable
      * Determine if the user has liked the given tweet.
      *
      * @param \App\Models\Tweet $tweet
-     * @return boolean
+     * @return bool
      */
     public function hasLiked(Tweet $tweet)
     {

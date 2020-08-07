@@ -11,9 +11,9 @@ class TweetMedia extends Model implements HasMedia
     use InteractsWithMedia;
 
     /**
-     * Undocumented function
+     * The base media that this media belongs to.
      *
-     * @return void
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function baseMedia()
     {
