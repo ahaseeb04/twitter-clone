@@ -8,9 +8,9 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media as BaseMedia;
 class Media extends BaseMedia
 {
     /**
-     * Get the media types.
+     * Get the media type.
      *
-     * @return \App\Support\Media\MediaTypes
+     * @return string
      */
     public function type()
     {
