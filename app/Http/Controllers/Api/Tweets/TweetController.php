@@ -16,8 +16,8 @@ use App\Notifications\Tweets\TweetMentionedIn;
 class TweetController extends Controller
 {
     /**
-     * Instantiate a new controller instance.
-     * 
+     * Create a new controller instance.
+     *
      * @return void
      */
     public function __construct()
