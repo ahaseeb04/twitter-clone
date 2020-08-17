@@ -5,7 +5,7 @@ namespace App\Support\Media;
 class MediaTypes
 {
     /**
-     * Undocumented variable
+     * The image types that are allowed.
      *
      * @var array
      */
@@ -17,7 +17,7 @@ class MediaTypes
     ];
 
     /**
-     * Undocumented variable
+     * The video types that are allowed.
      *
      * @var array
      */
@@ -26,10 +26,10 @@ class MediaTypes
     ];
 
     /**
-     * Undocumented function
+     * Determine the type based on the given mime.
      *
-     * @param [type] $mime
-     * @return void
+     * @param string $mime
+     * @return string|null
      */
     public static function type($mime)
     {
@@ -45,9 +45,9 @@ class MediaTypes
     }
 
     /**
-     * Undocumented function
+     * Get the media types that are allowed.
      *
-     * @return void
+     * @return array
      */
     public static function all()
     {
