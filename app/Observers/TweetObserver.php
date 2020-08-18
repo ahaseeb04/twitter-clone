@@ -9,9 +9,9 @@ use App\Support\Tweets\Entities\EntityExtractor;
 class TweetObserver
 {
     /**
-     * Undocumented function
+     * Handle the model's "creating" event.
      *
-     * @param Tweet $tweet
+     * @param \App\Models\Tweet $tweet
      * @return void
      */
     public function creating(Tweet $tweet)
@@ -20,9 +20,9 @@ class TweetObserver
     }
 
     /**
-     * Undocumented function
+     * Handle the model's "created" event.
      *
-     * @param Tweet $tweet
+     * @param \App\Models\Tweet $tweet
      * @return void
      */
     public function created(Tweet $tweet)
