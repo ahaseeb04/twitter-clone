@@ -7,9 +7,9 @@ use App\Models\User;
 class UserObserver
 {
     /**
-     * Undocumented function
+     * Handle the model's "created" event.
      *
-     * @param User $user
+     * @param \App\Models\User $user
      * @return void
      */
     public function created(User $user)
