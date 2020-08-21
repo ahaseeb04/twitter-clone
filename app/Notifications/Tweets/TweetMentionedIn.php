@@ -15,16 +15,16 @@ class TweetMentionedIn extends Notification
     use Queueable;
 
     /**
-     * Undocumented variable
+     * The user instance.
      *
-     * @var [type]
+     * @var \App\Models\User
      */
     protected $user;
 
     /**
-     * Undocumented variable
+     * The tweet instance.
      *
-     * @var [type]
+     * @var \App\Models\Tweet
      */
     protected $tweet;
 
