@@ -15,14 +15,14 @@ class TweetLiked extends Notification
     use Queueable;
 
     /**
-     * The user.
+     * The user instance.
      *
      * @var \App\Models\User
      */
     protected $user;
 
     /**
-     * The tweet.
+     * The tweet instance.
      *
      * @var \App\Models\Tweet
      */
