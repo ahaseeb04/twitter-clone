@@ -15,24 +15,24 @@ class TweetLiked extends Notification
     use Queueable;
 
     /**
-     * Undocumented variable
+     * The user.
      *
-     * @var [type]
+     * @var \App\Models\User
      */
     protected $user;
 
     /**
-     * Undocumented variable
+     * The tweet.
      *
-     * @var [type]
+     * @var \App\Models\Tweet
      */
     protected $tweet;
 
     /**
      * Create a new notification instance.
      *
-     * @param User $user
-     * @param Tweet $tweet
+     * @param \App\Models\User $user
+     * @param \App\Models\Tweet $tweet
      */
     public function __construct(User $user, Tweet $tweet)
     {
