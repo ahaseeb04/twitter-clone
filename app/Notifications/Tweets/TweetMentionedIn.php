@@ -31,8 +31,8 @@ class TweetMentionedIn extends Notification
     /**
      * Create a new notification instance.
      *
-     * @param User $user
-     * @param Tweet $tweet
+     * @param \App\Models\User $user
+     * @param \App\Models\Tweet $tweet
      */
     public function __construct(User $user, Tweet $tweet)
     {
