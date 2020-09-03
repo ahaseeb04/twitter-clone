@@ -6,7 +6,6 @@ use App\Models\Tweet;
 use App\Http\Resources\UserResource;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
-use App\Http\Resources\Tweets\TweetResource;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
