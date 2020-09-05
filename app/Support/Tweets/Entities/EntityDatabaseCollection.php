@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Collection;
 class EntityDatabaseCollection extends Collection
 {
     /**
-     * Undocumented function
+     * Get a collection of users mentioned in the tweet.
      *
-     * @return void
+     * @return \App\Models\User
      */
     public function users()
     {
