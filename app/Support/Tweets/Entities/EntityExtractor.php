@@ -31,9 +31,7 @@ class EntityExtractor
      */
     public function getHashtagEntities()
     {
-        return $this->buildEntityArray(
-            $this->match(self::HASHTAG_REGEX), EntityTypes::HASHTAG
-        );
+        return $this->buildEntityArray($this->match(self::HASHTAG_REGEX), EntityTypes::HASHTAG);
     }
 
     /**
@@ -43,9 +41,7 @@ class EntityExtractor
      */
     public function getMentionEntities()
     {
-        return $this->buildEntityArray(
-            $this->match(self::MENTION_REGEX), EntityTypes::MENTION
-        );
+        return $this->buildEntityArray($this->match(self::MENTION_REGEX), EntityTypes::MENTION);
     }
 
     /**
@@ -55,12 +51,9 @@ class EntityExtractor
      */
     public function getEntities()
     {
-        return array_merge(
-            $this->getHashtagEntities(), 
-            $this->getMentionEntities()
-        );
+        return array_merge($this->getHashtagEntities(), $this->getMentionEntities());
     }
-    
+
     /**
      * Build up the entity array.
      *
@@ -90,7 +83,7 @@ class EntityExtractor
     protected function match($pattern)
     {
         preg_match_all($pattern, $this->string, $matches, PREG_OFFSET_CAPTURE);
-        
+
         return $matches;
     }
 }
