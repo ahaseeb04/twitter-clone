@@ -10,7 +10,7 @@
             v-if="tweet(id)"
             :tweet="tweet(id)"
         />
-        
+
         <app-tweet
             v-for="reply in replies(id)"
             :tweet="reply"
@@ -48,12 +48,12 @@
             this.getTweets(`/api/tweets/${this.id}`)
             this.getTweets(`/api/tweets/${this.id}/replies`)
 
-            Echo.channel('tweets')
-                .listen('.TweetWasDeleted', (e) => {
-                    if (e.id === parseInt(this.id) && e.user.username === User.username) {
-                        location.href = '/home'
-                    }
-                })
+            // Echo.channel('tweets')
+            //     .listen('.TweetWasDeleted', (e) => {
+            //         if (e.id === parseInt(this.id) && e.user.username === User.username) {
+            //             location.href = '/home'
+            //         }
+            //     })
         }
     }
 </script>
