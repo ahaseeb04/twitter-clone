@@ -4,11 +4,12 @@ namespace App\Models;
 
 use App\Support\Tweets\TweetTypes;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -70,7 +71,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Get the users that the user is following. 
+     * Get the users that the user is following.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
