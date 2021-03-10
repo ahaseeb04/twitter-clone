@@ -14,7 +14,7 @@
         "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0",
-        "elliptic": "^6.5.3",
+        "elliptic": "^6.5.4",
         "jquery": "^3.2",
         "laravel-echo": "^1.8.0",
         "laravel-mix": "^5.0.5",
